@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:stv="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+
+
+    <com.allen.library.SuperTextView
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        stv:sDividerLineType="none"
+        />
+
+    <com.allen.library.SuperTextView
+        android:id="@+id/alipay_stv"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+
+        stv:sLeftViewMarginLeft="20dp"
+
+        stv:sRightIconMarginRight="40dp"
+        stv:sRightIconRes="@mipmap/photo"
+        stv:sRightIconHeight="25dp"
+        stv:sRightIconWidth="25dp"
+
+
+        stv:sLeftBottomTextString="相册"
+        stv:sLeftBottomTextColor="@android:color/black"
+        stv:sLeftBottomTextSize="30sp"
+        stv:sLeftViewGravity="left_center"
+        stv:sDividerLineType="bottom"
+        stv:sDividerLineColor="@color/app_theme"
+        stv:sDividerLineHeight="1dp"
+        stv:sBottomDividerLineMarginLR="20dp"
+
+
+        />
+
+
+
+
+
+
+
+</LinearLayout>

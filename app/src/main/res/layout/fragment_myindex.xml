@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:stv="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <com.allen.library.SuperTextView
+        android:id="@+id/alipay_stv"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+
+        stv:sLeftIconMarginLeft="30dp"
+        stv:sLeftIconRes="@mipmap/image_head"
+        stv:sLeftIconHeight="60dp"
+        stv:sLeftIconWidth="60dp"
+        stv:sLeftIconShowCircle="true"
+
+        stv:sLeftTopTextString="忘了爱"
+        stv:sLeftTopTextColor="@android:color/black"
+        stv:sLeftTopTextSize="20sp"
+        stv:sLeftTextString="吾家，记录美好家庭生活"
+        stv:sLeftTextColor="#979797"
+        stv:sLeftBottomTextString="ID:8356312"
+        stv:sLeftBottomTextColor="#979797"
+        stv:sLeftViewGravity="left_center"
+        stv:sDividerLineType="none"
+
+        />
+
+
+    <com.allen.library.SuperTextView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="40dp"
+
+        stv:sLeftViewMarginLeft="20dp"
+        stv:sDividerLineType="bottom"
+        stv:sLeftTextString="头像"
+        stv:sRightIconRes="@mipmap/arrow_right" />
+    <com.allen.library.SuperTextView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        stv:sLeftViewMarginLeft="20dp"
+        stv:sDividerLineType="bottom"
+        stv:sLeftTextString="名字"
+        stv:sRightIconRes="@mipmap/arrow_right" />
+    <com.allen.library.SuperTextView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        stv:sLeftViewMarginLeft="20dp"
+        stv:sDividerLineType="bottom"
+        stv:sLeftTextString="定位"
+        stv:sRightTextString="上海"
+        stv:sRightTextColor="#979797"
+        stv:sRightViewMarginRight="40dp"/>
+    <com.allen.library.SuperTextView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        stv:sLeftViewMarginLeft="20dp"
+        stv:sDividerLineType="bottom"
+        stv:sLeftTextString="手机"
+        stv:sRightIconRes="@mipmap/arrow_right" />
+    <com.allen.library.SuperTextView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        stv:sLeftViewMarginLeft="20dp"
+        stv:sDividerLineType="bottom"
+        stv:sLeftTextString="生日"
+        stv:sRightIconRes="@mipmap/arrow_right" />
+
+</LinearLayout>
