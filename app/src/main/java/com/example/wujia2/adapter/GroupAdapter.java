@@ -53,6 +53,7 @@ public class GroupAdapter extends BaseAdapter {
         Group group=(Group) getItem(position);
         SuperTextView superTextView = view.findViewById(R.id.super_tv);
         superTextView.setLeftTopString(group.getGroupName());
+        superTextView.setLeftBottomString(group.getId().toString());
 
         return view;
     }

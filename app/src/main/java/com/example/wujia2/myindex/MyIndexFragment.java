@@ -17,7 +17,6 @@ import android.widget.Toast;
 import com.allen.library.SuperTextView;
 import com.example.wujia2.HomeActivity;
 import com.example.wujia2.LoginActivity;
-import com.example.wujia2.MainActivity;
 import com.example.wujia2.R;
 import com.example.wujia2.pojo.User;
 import com.example.wujia2.utils.DateConverter;
@@ -61,23 +60,23 @@ public class MyIndexFragment extends Fragment {
                 String token = preferences.getString("token", "");
 
                 if (token.equals("") || token == null) {
-                    Intent intent = new Intent((HomeActivity) getActivity(), LoginActivity.class);
+                    Intent intent = new Intent(getActivity(), LoginActivity.class);
                     startActivity(intent);
                 }
 
                 Response response = null;
                 try {
-                    response = HttpUtil.requestGetBySyn("http://192.168.1.102:10010/api/user", token);
+                    response = HttpUtil.requestGetBySyn("http://192.168.1.136:10010/api/user", token);
                 } catch (IOException e) {
                     Looper.prepare();
-                    Toast.makeText((HomeActivity) getActivity(), "内部错误，请稍后再试！", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), "内部错误，请稍后再试！", Toast.LENGTH_SHORT).show();
                     Looper.loop();
                 }
 
                 if (response != null && response.code() == 406) {
                     Looper.prepare();
-                    Toast.makeText((HomeActivity) getActivity(), "无权访问 未登陆！", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent((HomeActivity) getActivity(), LoginActivity.class);
+                    Toast.makeText( getActivity(), "无权访问 未登陆！", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(getActivity(), LoginActivity.class);
                     startActivity(intent);
                     Looper.loop();
 
