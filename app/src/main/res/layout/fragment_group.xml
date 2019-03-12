@@ -37,10 +37,7 @@
         stv:sDividerLineType="bottom"
         stv:sDividerLineColor="@color/app_theme"
         stv:sDividerLineHeight="1dp"
-        stv:sBottomDividerLineMarginLR="20dp"
-
-
-        />
+        stv:sBottomDividerLineMarginLR="20dp" />
 
 
     <com.allen.library.SuperTextView
@@ -52,80 +49,15 @@
         stv:sLeftTextString="我加入的群"
 
         />
-
-    <com.allen.library.SuperTextView
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/swipe_refresh_layout"
         android:layout_width="match_parent"
-        android:layout_height="80dp"
-        stv:sLeftIconMarginLeft="30dp"
-        stv:sLeftIconRes="@mipmap/group_head"
-        stv:sLeftIconHeight="50dp"
-        stv:sLeftIconWidth="50dp"
-        stv:sLeftIconShowCircle="true"
-        stv:sLeftTopTextString="咱们一家人"
-        stv:sLeftTopTextColor="@android:color/black"
-        stv:sLeftTopTextSize="20sp"
-        stv:sLeftBottomTextString="ID:8356312"
-        stv:sLeftBottomTextColor="#979797"
-        stv:sLeftViewGravity="left_center"
-        stv:sDividerLineType="bottom"
-        stv:sBottomDividerLineMarginLR="20dp"
-
-        />
-    <com.allen.library.SuperTextView
-        android:layout_width="match_parent"
-        android:layout_height="80dp"
-        stv:sLeftIconMarginLeft="30dp"
-        stv:sLeftIconRes="@mipmap/group_head"
-        stv:sLeftIconHeight="50dp"
-        stv:sLeftIconWidth="50dp"
-        stv:sLeftIconShowCircle="true"
-        stv:sLeftTopTextString="咱们一家人"
-        stv:sLeftTopTextColor="@android:color/black"
-        stv:sLeftTopTextSize="20sp"
-        stv:sLeftBottomTextString="ID:8356312"
-        stv:sLeftBottomTextColor="#979797"
-        stv:sLeftViewGravity="left_center"
-        stv:sDividerLineType="bottom"
-        stv:sBottomDividerLineMarginLR="20dp"
-
-        />
-    <com.allen.library.SuperTextView
-        android:layout_width="match_parent"
-        android:layout_height="80dp"
-        stv:sLeftIconMarginLeft="30dp"
-        stv:sLeftIconRes="@mipmap/group_head"
-        stv:sLeftIconHeight="50dp"
-        stv:sLeftIconWidth="50dp"
-        stv:sLeftIconShowCircle="true"
-        stv:sLeftTopTextString="咱们一家人"
-        stv:sLeftTopTextColor="@android:color/black"
-        stv:sLeftTopTextSize="20sp"
-        stv:sLeftBottomTextString="ID:8356312"
-        stv:sLeftBottomTextColor="#979797"
-        stv:sLeftViewGravity="left_center"
-        stv:sDividerLineType="bottom"
-        stv:sBottomDividerLineMarginLR="20dp"
-
-        />
-    <com.allen.library.SuperTextView
-        android:layout_width="match_parent"
-        android:layout_height="80dp"
-        stv:sLeftIconMarginLeft="30dp"
-        stv:sLeftIconRes="@mipmap/group_head"
-        stv:sLeftIconHeight="50dp"
-        stv:sLeftIconWidth="50dp"
-        stv:sLeftIconShowCircle="true"
-        stv:sLeftTopTextString="咱们一家人"
-        stv:sLeftTopTextColor="@android:color/black"
-        stv:sLeftTopTextSize="20sp"
-        stv:sLeftBottomTextString="ID:8356312"
-        stv:sLeftBottomTextColor="#979797"
-        stv:sLeftViewGravity="left_center"
-        stv:sDividerLineType="bottom"
-        stv:sBottomDividerLineMarginLR="20dp"
-
-        />
-
+        android:layout_height="match_parent">
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </android.support.v4.widget.SwipeRefreshLayout>
 
 
 

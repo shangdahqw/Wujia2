@@ -3,7 +3,8 @@
     <color name="colorPrimary">#FFFFFF</color>
     <color name="colorPrimaryDark">#31000000</color>
     <color name="colorAccent">#D81B60</color>
-    <color name="tab_checked">#1940F2</color>
+    <color name="tab_checked">#5EB14C</color>
     <color name="tab_unchecked">#D0000000</color>
-    <color name="app_theme">#1940F2</color>
+    <color name="app_theme">#5EB14C</color>
+
 </resources>

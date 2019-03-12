@@ -7,7 +7,7 @@
 
 
     <com.allen.library.SuperTextView
-        android:id="@+id/alipay_stv"
+        android:id="@+id/head"
         android:layout_width="match_parent"
         android:layout_height="200dp"
 
@@ -29,7 +29,6 @@
 
         />
 
-
     <com.allen.library.SuperTextView
         android:layout_width="match_parent"
         android:layout_height="50dp"
@@ -40,11 +39,14 @@
         stv:sLeftTextString="头像"
         stv:sRightIconRes="@mipmap/arrow_right" />
     <com.allen.library.SuperTextView
+        android:id="@+id/username"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         stv:sLeftViewMarginLeft="20dp"
         stv:sDividerLineType="bottom"
         stv:sLeftTextString="名字"
+        stv:sRightTextString="忘了爱"
+        stv:sRightTextColor="#979797"
         stv:sRightIconRes="@mipmap/arrow_right" />
     <com.allen.library.SuperTextView
         android:layout_width="match_parent"
@@ -56,18 +58,24 @@
         stv:sRightTextColor="#979797"
         stv:sRightViewMarginRight="40dp"/>
     <com.allen.library.SuperTextView
+        android:id="@+id/iphone"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         stv:sLeftViewMarginLeft="20dp"
         stv:sDividerLineType="bottom"
         stv:sLeftTextString="手机"
+        stv:sRightTextString="18702117082"
+        stv:sRightTextColor="#979797"
         stv:sRightIconRes="@mipmap/arrow_right" />
     <com.allen.library.SuperTextView
+        android:id="@+id/birthday"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         stv:sLeftViewMarginLeft="20dp"
         stv:sDividerLineType="bottom"
         stv:sLeftTextString="生日"
+        stv:sRightTextString="2019-03-01"
+        stv:sRightTextColor="#979797"
         stv:sRightIconRes="@mipmap/arrow_right" />
 
 </LinearLayout>

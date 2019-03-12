@@ -35,5 +35,10 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 
     implementation 'com.github.lygttpod:SuperTextView:2.1.8'
+    implementation 'com.squareup.okhttp3:okhttp:3.9.0'
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.9.8'
+
+
+
 
 }

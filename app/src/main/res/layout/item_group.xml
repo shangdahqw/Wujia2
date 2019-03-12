@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:stv="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/selector_white"
+    android:orientation="vertical">
+
+
+    <com.allen.library.SuperTextView
+        android:id="@+id/super_tv"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        stv:sLeftIconMarginLeft="30dp"
+        stv:sLeftIconRes="@mipmap/group_head"
+        stv:sLeftIconHeight="50dp"
+        stv:sLeftIconWidth="50dp"
+        stv:sLeftIconShowCircle="true"
+        stv:sLeftTopTextString="咱们一家人"
+        stv:sLeftTopTextColor="@android:color/black"
+        stv:sLeftTopTextSize="20sp"
+        stv:sLeftBottomTextString="ID:8356312"
+        stv:sLeftBottomTextColor="#979797"
+        stv:sLeftViewGravity="left_center"
+        stv:sDividerLineType="bottom"
+        stv:sBottomDividerLineMarginLR="20dp"
+
+        />
+</LinearLayout>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:stv="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <com.allen.library.SuperTextView
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        stv:sDividerLineType="none"
+        />
+    <com.allen.library.SuperTextView
+        android:id="@+id/alipay_stv"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        stv:sCenterBottomTextString="咱一家人"
+        stv:sCenterBottomTextColor="@android:color/black"
+        stv:sCenterBottomTextSize="20sp"
+        stv:sCenterViewGravity="center"
+        stv:sDividerLineType="none"
+        stv:sLeftIconMarginLeft="15dp"
+        stv:sLeftIconRes="@mipmap/arrow_left"
+        />
+
+    <com.allen.library.SuperTextView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="40dp"
+
+        stv:sLeftIconMarginLeft="15dp"
+        stv:sLeftIconRes="@mipmap/photo_group"
+
+        stv:sLeftViewMarginLeft="10dp"
+        stv:sDividerLineType="bottom"
+        stv:sLeftTextString="相册"
+        stv:sLeftTextSize="18dp"
+        stv:sRightIconRes="@mipmap/arrow_right" />
+
+    <com.allen.library.SuperTextView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+
+        stv:sLeftIconMarginLeft="15dp"
+        stv:sLeftIconRes="@mipmap/group"
+
+        stv:sLeftViewMarginLeft="10dp"
+        stv:sDividerLineType="bottom"
+        stv:sLeftTextString="群成员"
+        stv:sLeftTextSize="18dp"
+        stv:sRightIconRes="@mipmap/arrow_right" />
+    <com.allen.library.SuperTextView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+
+        stv:sLeftIconMarginLeft="15dp"
+        stv:sLeftIconRes="@mipmap/notification"
+
+        stv:sLeftViewMarginLeft="10dp"
+        stv:sDividerLineType="bottom"
+        stv:sLeftTextString="群公告"
+        stv:sLeftTextSize="18dp"
+        stv:sRightIconRes="@mipmap/arrow_right" />
+
+</LinearLayout>

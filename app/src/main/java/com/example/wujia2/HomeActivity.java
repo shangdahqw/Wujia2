@@ -1,6 +1,8 @@
 package com.example.wujia2;
 
 import android.app.Activity;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
@@ -14,6 +16,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.Toast;
 
 import com.example.wujia2.group.GroupFragment;
 import com.example.wujia2.message.MessageFragment;
@@ -21,9 +24,14 @@ import com.example.wujia2.myindex.MyIndexFragment;
 import com.example.wujia2.navigation.BottomNavigationViewHelper;
 import com.example.wujia2.navigation.ViewPagerAdapter;
 import com.example.wujia2.photo.PhotoFragment;
+import com.example.wujia2.utils.HttpUtil;
 
+import java.io.IOException;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
+
+import okhttp3.HttpUrl;
+import okhttp3.Response;
 
 /** Created by bruce on 2016/11/1. HomeActivity 主界面 */
 public class HomeActivity extends AppCompatActivity {
@@ -36,13 +44,8 @@ public class HomeActivity extends AppCompatActivity {
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
 
-    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-      getWindow().setStatusBarColor(getResources().getColor(R.color.white)); // 设置状态栏颜色
-      getWindow()
-          .getDecorView()
-          .setSystemUiVisibility(
-              View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN | View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
-    }
+    setNavigation();
+
     setContentView(R.layout.activity_home);
     viewPager = (ViewPager) findViewById(R.id.viewpager);
     bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottom_navigation);
@@ -92,6 +95,17 @@ public class HomeActivity extends AppCompatActivity {
         });
 
     setupViewPager(viewPager);
+  }
+
+
+  private void setNavigation() {
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+      getWindow().setStatusBarColor(getResources().getColor(R.color.white)); // 设置状态栏颜色
+      getWindow()
+          .getDecorView()
+          .setSystemUiVisibility(
+              View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN | View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+    }
   }
 
   private void setupViewPager(ViewPager viewPager) {
