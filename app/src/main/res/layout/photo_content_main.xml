@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.example.wujia2.photo.MainActivity"
+    tools:showIn="@layout/photo_main">
+
+
+    <com.example.wujia2.photo.GradScrollView
+        android:id="@+id/scrollview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="250dp">
+
+
+                <ImageView
+                    android:id="@+id/headBkg"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@mipmap/bg"
+                    android:scaleType="fitXY" />
+
+                <com.makeramen.roundedimageview.RoundedImageView
+                    android:id="@+id/userIcon"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="130dp"
+                    app:riv_border_color="@color/colorPrimary"
+                    app:riv_border_width="2dip"
+                    app:riv_corner_radius="30dip"
+                    android:src="@mipmap/defhead"
+                    app:riv_mutate_background="true"
+                    app:riv_oval="true"
+                    app:riv_tile_mode="clamp" />
+
+
+            </RelativeLayout>
+
+
+            <com.example.wujia2.photo.MyListview
+                android:id="@+id/lv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:divider="#F2F2F2"
+                android:dividerHeight="0.5dp" />
+
+        </LinearLayout>
+    </com.example.wujia2.photo.GradScrollView>
+    <RelativeLayout
+        android:id="@+id/spaceTopChange"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:background="#003793c7">
+
+        <ImageView
+            android:id="@+id/back"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="5dp"
+            android:src="@mipmap/left_arrow" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="相册动态"
+            android:textColor="@color/white"
+            android:textSize="17sp" />
+
+        <ImageView
+            android:id="@+id/add"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:src="@mipmap/addpost" />
+    </RelativeLayout>
+
+</RelativeLayout>

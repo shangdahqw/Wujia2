@@ -6,6 +6,8 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.FileNameMap;
+import java.net.URLConnection;
 import java.util.concurrent.TimeUnit;
 
 public class HttpUtil {
@@ -89,30 +91,25 @@ public class HttpUtil {
    * post同步提交Form-Data数据请求（上传文件）
    *
    * @param requestUrl
-   * @param type
-   * @param projectId
-   * @param file
+   * @param pathName
    * @return
    * @throws IOException
    */
   public static Response requestPostBySynWithFormData(
-      String requestUrl, int type, long projectId, File file, String token) throws IOException {
+      String requestUrl,  String pathName, String fileName) throws IOException {
 
     RequestBody requestBody =
         new MultipartBody.Builder()
             .setType(MultipartBody.FORM)
-            .addFormDataPart("type", String.valueOf(type))
-            .addFormDataPart("projectId", String.valueOf(projectId))
             .addFormDataPart(
                 "file",
-                file.getName(),
-                RequestBody.create(MediaType.parse("application/octet-stream"), file))
+                fileName,
+                RequestBody.create(MediaType.parse("application/octet-stream"),  new File(pathName)))
             .build();
 
     Request request =
         new Request.Builder()
             .url(requestUrl)
-            .header("Authorization", token)
             .post(requestBody)
             .build();
 
@@ -126,6 +123,7 @@ public class HttpUtil {
       throw new IOException("Inner error " + e);
     }
   }
+
 
   /**
    * post同步下载
@@ -195,4 +193,45 @@ public class HttpUtil {
     }
     return response;
   }
+  /**
+   * post同步请求
+   *
+   * @param requestUrl
+   * @param requestParam 请求参数：json字符串
+   * @return
+   * @throws IOException
+   */
+  public static Response requestPutBySyn(String requestUrl, String requestParam, String token)
+          throws IOException {
+    // 创建一个请求
+    Request request = null;
+
+    try {
+      // 不带参数
+      if (requestParam == null) {
+        request = new Request.Builder().url(requestUrl).header("Authorization", token).build();
+      }
+      // 带参数
+      else {
+        MediaType mediaType = MediaType.parse("application/json; charset=utf-8");
+        RequestBody requestBody = RequestBody.create(mediaType, requestParam);
+        request =
+                new Request.Builder()
+                        .url(requestUrl)
+                        .header("Authorization", token)
+                        .put(requestBody)
+                        .build();
+      }
+      // 创建一个Call
+      Call call = okHttpClient.newCall(request);
+      // 执行请求
+      Response response = call.execute();
+
+      return response;
+
+    } catch (IOException e) {
+      throw new IOException("Inner error " + e);
+    }
+  }
+
 }
