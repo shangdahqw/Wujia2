@@ -7,6 +7,10 @@ public class Group {
 
   private Long id;
   private Long createdUserId; // 创建用户
+  private String groupName;
+  private String notice;
+  private Date created;
+  private String imageUrl;
 
   public Long getId() {
     return id;
@@ -48,19 +52,15 @@ public class Group {
     this.created = created;
   }
 
-  private String groupName;
-  private String notice;
-  private Date created;
 
-
-  @Override
-  public String toString() {
-    return "Group{" +
-            "id=" + id +
-            ", createdUserId=" + createdUserId +
-            ", groupName='" + groupName + '\'' +
-            ", notice='" + notice + '\'' +
-            ", created=" + created +
-            '}';
+  public String getImageUrl() {
+    return imageUrl;
   }
+
+  public void setImageUrl(String imageUrl) {
+    this.imageUrl = imageUrl;
+  }
+
+
+
 }

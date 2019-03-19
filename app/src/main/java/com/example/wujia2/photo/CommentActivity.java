@@ -3,6 +3,7 @@ package com.example.wujia2.photo;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
@@ -13,22 +14,21 @@ import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.ListView;
-import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
-
 import com.example.wujia2.LoginActivity;
 import com.example.wujia2.R;
 import com.example.wujia2.pojo.Circle;
 import com.example.wujia2.pojo.Reply;
+import com.example.wujia2.pojo.ReplyUserVo;
 import com.example.wujia2.pojo.User;
 import com.example.wujia2.utils.DateConverter;
 import com.example.wujia2.utils.HttpUtil;
@@ -46,6 +46,7 @@ import java.util.List;
 
 import okhttp3.Response;
 
+import static com.example.wujia2.MyApplication.SERVER_MICRO_URL;
 
 public class CommentActivity extends AppCompatActivity implements View.OnClickListener {
     private float mFirstY;
@@ -60,26 +61,23 @@ public class CommentActivity extends AppCompatActivity implements View.OnClickLi
     TextView tv_name, tv_time, tv_content, tv_good;
     private NineGridView nineGridView;
     private Button btn_reply;
-    private EditText repy_content, ed_comm;
+    private EditText repy_content;
     private AlertDialog al;
     private ArrayList<String> picList = new ArrayList<>();
     private LinearLayout ly_opte, area_commit;
-    private ImageView et_reply, back_deal, comm_share, comm_del;//返回
+    private ImageView et_reply, back_deal;//返回
     private Boolean isHaven;//是否存在图片
     private String auhthor_url;//帖子作者id
-    private User user;
     private Long circle_id;
     private Long user_id;
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.photo_comment);
+        setNavigation();
         init();
         initListener();
-        getUrl();
     }
 
     /*
@@ -100,7 +98,6 @@ public class CommentActivity extends AppCompatActivity implements View.OnClickLi
         back_deal = findViewById(R.id.back_deal);
         et_reply = findViewById(R.id.comm_repy);
         ly_opte = findViewById(R.id.ly_opte);
-        comm_del = findViewById(R.id.comm_del);
         tv_name.setText(getIntent().getStringExtra("username"));
         tv_time.setText(getIntent().getStringExtra("time"));
         tv_content.setText(getIntent().getStringExtra("content"));
@@ -114,7 +111,6 @@ public class CommentActivity extends AppCompatActivity implements View.OnClickLi
         }
         post.setId(circle_id);
         Glide.with(CommentActivity.this).load(headurl).into(head);
-        user = new User();  //todo
 
         if (getIntent().getStringArrayListExtra("infoList") == null) {
             nineGridView.setVisibility(View.GONE);
@@ -147,14 +143,6 @@ public class CommentActivity extends AppCompatActivity implements View.OnClickLi
                 CommentActivity.this.finish();//关闭详情页
             }
         });
-
-        comm_del.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //删除帖子
-                del();
-            }
-        });
     }
 
     private void toast(String date) {
@@ -163,17 +151,10 @@ public class CommentActivity extends AppCompatActivity implements View.OnClickLi
 
 
     private void publishComment(String content) {
-
-        if (user == null) {
-            toast("发表评论前请先登陆");
-            return;
-        } else if (TextUtils.isEmpty(content)) {
+        if (TextUtils.isEmpty(content)) {
             toast("发表评论不能为空");
             return;
         }
-        showDialog_com();
-
-
 
 
         new Thread() {
@@ -182,11 +163,11 @@ public class CommentActivity extends AppCompatActivity implements View.OnClickLi
                 Response response = null;
 
 
-                Reply reply =new Reply();
+                Reply reply = new Reply();
                 reply.setCircleId(circle_id);
                 reply.setContent(repy_content.getText().toString());
                 reply.setUserTo(user_id);
-                String requestPara =JsonUtils.serialize(reply);
+                String requestPara = JsonUtils.serialize(reply);
 
                 SharedPreferences preferences;
                 preferences = getSharedPreferences("user", MODE_PRIVATE);
@@ -199,16 +180,16 @@ public class CommentActivity extends AppCompatActivity implements View.OnClickLi
                 }
 
                 try {
-                    response = HttpUtil.requestPutBySyn("http://192.168.1.136:10010/api/item/reply", requestPara,token);
+                    response = HttpUtil.requestPutBySyn(SERVER_MICRO_URL + "api/item/reply", requestPara, token);
                 } catch (IOException e) {
                     Looper.prepare();
                     Toast.makeText(CommentActivity.this, "内部错误，请稍后再试！", Toast.LENGTH_SHORT).show();
                     Looper.loop();
                 }
 
-                if (response != null && (response.code() == 406||response.code() == 403)) {
+                if (response != null && (response.code() == 406 || response.code() == 403)) {
                     Looper.prepare();
-                    Toast.makeText( CommentActivity.this, "无权访问 未登陆！", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(CommentActivity.this, "无权访问 未登陆！", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(CommentActivity.this, LoginActivity.class);
                     startActivity(intent);
                     Looper.loop();
@@ -252,7 +233,7 @@ public class CommentActivity extends AppCompatActivity implements View.OnClickLi
 
                 Response response = null;
                 try {
-                    response = HttpUtil.requestGetBySyn("http://192.168.1.136:10010/api/item/reply/list?circleId=" + circle_id, token);
+                    response = HttpUtil.requestGetBySyn(SERVER_MICRO_URL + "api/item/reply/list?circleId=" + circle_id, token);
                 } catch (IOException e) {
                     Looper.prepare();
                     Toast.makeText(CommentActivity.this, "内部错误，请稍后再试！", Toast.LENGTH_SHORT).show();
@@ -269,24 +250,24 @@ public class CommentActivity extends AppCompatActivity implements View.OnClickLi
                 }
                 if (response != null && response.code() == 200) {
                     // 存入数据
-                    List<Reply> relist = null;
+                    List<ReplyUserVo> replyUserVolist = null;
                     try {
                         String rpStr = response.body().string();
-                        relist = JsonUtils.parseList(rpStr, Reply.class);
+                        replyUserVolist = JsonUtils.parseList(rpStr, ReplyUserVo.class);
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
 
                     ArrayList<Comment> lists = new ArrayList();
 
-                    for (Reply reply : relist) {
+                    for (ReplyUserVo replyUserVo : replyUserVolist) {
                         Comment comment = new Comment();
-                        comment.setCircleId(reply.getCircleId());
-                        comment.setContent(reply.getContent());
-                        comment.setCreateTime(DateConverter.dateToStr(reply.getCreated()));
-                        comment.setId(reply.getId());
-                        comment.setUserHead("http://192.168.1.146/group1/M00/00/00/wKgBklyKNWSAFbMbAABpDDWjHHg08.jpeg");
-                        comment.setName(reply.getUserId().toString());
+                        comment.setCircleId(replyUserVo.getReply().getCircleId());
+                        comment.setContent(replyUserVo.getReply().getContent());
+                        comment.setCreateTime(DateConverter.dateTimeToStr(replyUserVo.getReply().getCreated()));
+                        comment.setId(replyUserVo.getReply().getId());
+                        comment.setUserHead(replyUserVo.getUser().getImageUrl());
+                        comment.setName(replyUserVo.getUser().getUsername());
                         lists.add(comment);
 
                     }
@@ -302,32 +283,6 @@ public class CommentActivity extends AppCompatActivity implements View.OnClickLi
 
     }
 
-    /*
-         获取时间
-     */
-    public String getTime() {
-        SimpleDateFormat formatter = new SimpleDateFormat("yyyy年MM月dd日 hh点");
-        Date curDate = new Date(System.currentTimeMillis());//获取当前时间
-        return formatter.format(curDate);
-    }
-
-    private void showDialog_com() {
-        LayoutInflater inflater = getLayoutInflater();
-        al = new AlertDialog.Builder(this)
-                .setTitle("回复评论中...")
-                .setView(R.layout.photo_dialog_com)
-                .show();
-
-    }
-
-    /*
-    隐藏输入框
-     */
-    private void hideSoftInput() {
-        InputMethodManager imm = (InputMethodManager) this.getSystemService(Context.INPUT_METHOD_SERVICE);
-
-        imm.hideSoftInputFromWindow(ed_comm.getWindowToken(), 0);
-    }
 
     /*
     加载帖子图片集合
@@ -357,73 +312,11 @@ public class CommentActivity extends AppCompatActivity implements View.OnClickLi
         imm.toggleSoftInput(0, InputMethodManager.SHOW_FORCED);
     }
 
-    /*
-    删除帖子
-     */
-    private void del() {
-//        Post p = new Post();
-//        p.setObjectId(obj);
-//        if (this.user.getObjectId().equals(auhthor_url)){
-//            p.delete(new UpdateListener() {
-//                @Override
-//                public void done(BmobException e) {
-//                    if(e==null){
-//                        toast("删除成功");
-//                        CommentActivity.this.finish();
-//                    }else{
-//                        toast("失败："+e.getMessage()+","+e.getErrorCode());
-//                    }
-//                }
-//            });
-//        }else {
-//            toast("您无权限删除别人发的帖子哦");
-//        }
-
-
-    }
-
-
-    /*
-    获取帖子作者信息objid
-     */
-    public void getUrl() {
-//        final String[] obj_info = {""};
-//        final BmobQuery<BmobUser> query = new BmobQuery<BmobUser>();
-//        query.addWhereEqualTo("username", tv_name.getText().toString());
-//        query.findObjects(new FindListener<BmobUser>() {
-//            @Override
-//            public void done(List<BmobUser> list, BmobException e) {
-//                al.dismiss();
-//                for (BmobUser data : list) {
-//                    obj_info[0] = data.getObjectId();
-//                    auhthor_url = obj_info[0];
-//                }
-//            }
-//
-//        });
-    }
 
     /*
     点赞
      */
     public void updates() {
-//        Post post = new Post();
-//        post.setObjectId(obj);
-//        // TODO Auto-generated method stub
-//        post.increment("praise");
-//        //不知道什么原因点赞后图片会显消失，所以标记一下
-//        post.setHaveIcon(isHaven);
-//        post.update(new UpdateListener() {
-//            @Override
-//            public void done(BmobException e) {
-//                if (e == null) {
-//                    toast("点赞成功！");
-//
-//                } else {
-//                    toast("点赞失败！");
-//                }
-//            }
-//        });
 
     }
 
@@ -472,6 +365,7 @@ public class CommentActivity extends AppCompatActivity implements View.OnClickLi
                             publishComment(content);
                         }
                     });
+                    al.dismiss();
                     break;
                 case 2:
                     findComments();
@@ -482,5 +376,15 @@ public class CommentActivity extends AppCompatActivity implements View.OnClickLi
             }
         }
     };
+
+    private void setNavigation() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);//隐藏状态栏但不隐藏状态栏字体
+            //getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN); //隐藏状态栏，并且不显示字体
+            getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN | View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);//实现状态栏文字颜色为黑色
+
+        }
+
+    }
 
 }

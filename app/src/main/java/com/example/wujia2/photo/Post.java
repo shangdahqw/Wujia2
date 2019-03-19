@@ -4,6 +4,17 @@ import java.util.List;
 
 
 public class Post {
+
+    private Long userId;
+    private String userIcon; //头像
+    private String userName;  // 名字
+    private String content;   // 说说内容
+    private List<String> headImgUrl; //图片的URL集合
+    private boolean haveIcon;  //判断是否有图片
+    private Integer praise;//点赞
+    private String time;//发表时间
+
+
     public Long getId() {
         return id;
     }
@@ -22,14 +33,7 @@ public class Post {
         this.userId = userId;
     }
 
-    private Long userId;
-    private String userIcon; //头像
-    private String userName;  // 名字
-    private String content;   // 说说内容
-    private List<String> headImgUrl; //图片的URL集合
-    private boolean haveIcon;  //判断是否有图片
-    private Integer praise;//点赞
-    private String time;//发表时间
+
 
     public String getTime() {
         return time;

@@ -1,25 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-     android:orientation="vertical"
-
+    xmlns:stv="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@color/colorPrimary"
     android:layout_height="match_parent">
+
 <RelativeLayout
 
     android:layout_width="match_parent"
-    android:layout_marginTop="11dp"
+    android:layout_marginTop="25dp"
     android:layout_height="50dp">
-    <TextView
+
+    <Button
         android:id="@+id/tv_send"
-        android:textStyle="bold"
-        android:textSize="17dp"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_marginRight="7dp"
-        android:textColor="@android:color/holo_green_dark"
-        android:layout_centerVertical="true"
-        android:text="发表" />
+        android:layout_height="32dp"
+        android:layout_marginLeft="280dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/buttonstyle"
+        android:text="发表"
+        android:textStyle="bold"
+        android:textColor="@color/colorPrimary"/>
 
     <TextView
         android:id="@+id/tv_cancle"
@@ -29,7 +32,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_centerVertical="true"
-android:textColor="@android:color/black"
+        android:textColor="@android:color/black"
         android:layout_marginStart="11dp"
         android:text="取消" />
 </RelativeLayout>
@@ -42,7 +45,7 @@ android:textColor="@android:color/black"
 
     <EditText
         android:id="@+id/et_content"
-        android:layout_width="match_parent"
+        android:layout_width="match_parent" android:inputType="" 
         android:layout_height="60dp"
         android:layout_marginLeft="20dp"
         android:layout_margin="10dp"

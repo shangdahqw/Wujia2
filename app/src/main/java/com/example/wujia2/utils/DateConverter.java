@@ -37,4 +37,9 @@ public class DateConverter  {
     String dateString = formatter.format(dateDate);
     return dateString;
   }
+  public static String dateTimeToStr(java.util.Date dateDate) {
+    SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+    String dateString = formatter.format(dateDate);
+    return dateString;
+  }
 }

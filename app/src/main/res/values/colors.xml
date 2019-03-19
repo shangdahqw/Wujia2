@@ -7,6 +7,8 @@
     <color name="tab_unchecked">#D0000000</color>
     <color name="app_theme">#5EB14C</color>
     <color name="text">#383636</color>
+    <color name="colorPrimary2">#BCFFFFFF</color>
+
 
 
 </resources>

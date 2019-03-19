@@ -12,8 +12,7 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        MyApplication
-        <activity android:name="com.example.wujia2.photo.MainActivity">
+        <activity android:name="HomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -21,15 +20,10 @@
             </intent-filter>
         </activity>
         <activity android:name=".LoginActivity"/>
-        <activity android:name=".HomeActivity"/>
+        <activity android:name=".MainActivity"/>
+        <activity android:name="com.example.wujia2.photo.MainActivity"/>
         <activity android:name="com.example.wujia2.photo.CommentActivity"/>
         <activity android:name="com.example.wujia2.photo.EditActivity"/>
-
-
-
-
-
-
 
 
     </application>

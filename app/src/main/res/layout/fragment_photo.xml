@@ -22,7 +22,7 @@
         stv:sLeftViewMarginLeft="20dp"
 
         stv:sRightIconMarginRight="40dp"
-        stv:sRightIconRes="@mipmap/photo"
+        stv:sRightIconRes="@mipmap/photo_take"
         stv:sRightIconHeight="25dp"
         stv:sRightIconWidth="25dp"
 
@@ -34,7 +34,37 @@
         stv:sDividerLineType="bottom"
         stv:sDividerLineColor="@color/app_theme"
         stv:sDividerLineHeight="1dp"
-        stv:sBottomDividerLineMarginLR="20dp"
+        stv:sBottomDividerLineMarginLR="20dp" />
+
+    <com.allen.library.SuperTextView
+        android:id="@+id/photoview"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="40dp"
+
+        stv:sLeftIconMarginLeft="15dp"
+        stv:sLeftIconRes="@mipmap/photo"
+
+        stv:sLeftViewMarginLeft="10dp"
+        stv:sDividerLineType="bottom"
+        stv:sLeftTextString="照片"
+        stv:sLeftTextSize="18dp"
+        stv:sRightIconRes="@mipmap/arrow_right" />
+
+    <com.allen.library.SuperTextView
+        android:id="@+id/videoview"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+
+        stv:sLeftIconMarginLeft="15dp"
+        stv:sLeftIconRes="@mipmap/video"
+
+        stv:sLeftViewMarginLeft="10dp"
+        stv:sDividerLineType="bottom"
+        stv:sLeftTextString=" 视频"
+        stv:sLeftTextSize="18dp"
+        stv:sRightIconRes="@mipmap/arrow_right" />
 
 
         />

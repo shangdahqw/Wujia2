@@ -10,7 +10,6 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,80 +29,29 @@ import java.util.List;
 import okhttp3.Response;
 
 import static android.content.Context.MODE_PRIVATE;
+import static com.example.wujia2.MyApplication.SERVER_MICRO_URL;
 
-public class GroupFragment extends Fragment  {
+public class GroupFragment extends Fragment {
 
 
-
-private GroupAdapter adapter;
-private ListView listView;
-
+  private GroupAdapter adapter;
+  private ListView listView;
 
 
   @Nullable
   @Override
   public View onCreateView(
-      @NonNull LayoutInflater inflater,
-      @Nullable ViewGroup container,
-      @Nullable Bundle savedInstanceState) {
+          @NonNull LayoutInflater inflater,
+          @Nullable ViewGroup container,
+          @Nullable Bundle savedInstanceState) {
+    View view = inflater.inflate(R.layout.fragment_group, container, false);
 
-    View view = inflater.inflate(R.layout.fragment_group, container,false);
-    listView= (ListView) view.findViewById(R.id.mylist);
+    listView = (ListView) view.findViewById(R.id.mylist);
 
-
-
-    new Thread() {
-
-      @Override
-      public void run() {
-
-        SharedPreferences preferences;
-        preferences = getActivity().getSharedPreferences("user", MODE_PRIVATE);
-        // 读取SharedPreferences里的token数据
-        String token = preferences.getString("token", "");
-
-        if (token.equals("") || token == null) {
-          Intent intent = new Intent((HomeActivity) getActivity(), LoginActivity.class);
-          startActivity(intent);
-        }
-
-        Response response = null;
-        try {
-          response = HttpUtil.requestGetBySyn("http://192.168.1.136:10010/api/group/list", token);
-        } catch (IOException e) {
-          Looper.prepare();
-          Toast.makeText(getActivity(), "内部错误，请稍后再试！", Toast.LENGTH_SHORT).show();
-          Looper.loop();
-        }
-
-        if (response != null && response.code() == 406) {
-          Looper.prepare();
-          Toast.makeText((HomeActivity) getActivity(), "无权访问 未登陆！", Toast.LENGTH_SHORT).show();
-          Intent intent = new Intent(getActivity(), LoginActivity.class);
-          startActivity(intent);
-          Looper.loop();
-
-        }
-        if (response != null && response.code() == 200) {
-          // 存入数据
-          List<Group> grouplist =null;
-          try {
-            String groupStr = response.body().string();
-            grouplist = JsonUtils.parseList(groupStr, Group.class);
-          } catch (IOException e) {
-            e.printStackTrace();
-          }
-          Message msg = new Message();
-          msg.what = 1;
-          msg.obj = grouplist;
-          uiHandler.sendMessage(msg);
-
-        }
-
-      }
-    }.start();
+    new Thread(new NetThread()).start();
     return view;
   }
+
 
 
   //uiHandler在主线程中创建，所以自动绑定主线程
@@ -113,7 +61,6 @@ private ListView listView;
       switch (msg.what) {
         case 1:
           List<Group> grouplist = (List<Group>) msg.obj;
-
           adapter=new GroupAdapter(grouplist,getActivity());
           listView.setAdapter(adapter);
           break;
@@ -121,5 +68,56 @@ private ListView listView;
     }
   };
 
+
+  private class NetThread implements Runnable {
+
+    @Override
+    public void run() {
+
+      SharedPreferences preferences;
+      preferences = getActivity().getSharedPreferences("user", MODE_PRIVATE);
+      // 读取SharedPreferences里的token数据
+      String token = preferences.getString("token", "");
+
+      if (token.equals("") || token == null) {
+        Intent intent = new Intent((HomeActivity) getActivity(), LoginActivity.class);
+        startActivity(intent);
+      }
+
+      Response response = null;
+      try {
+        response = HttpUtil.requestGetBySyn(SERVER_MICRO_URL+"api/group/list", token);
+      } catch (IOException e) {
+        Looper.prepare();
+        Toast.makeText(getActivity(), "内部错误，请稍后再试！", Toast.LENGTH_SHORT).show();
+        Looper.loop();
+      }
+
+      if (response != null && response.code() == 406) {
+        Looper.prepare();
+        Toast.makeText((HomeActivity) getActivity(), "无权访问 未登陆！", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(getActivity(), LoginActivity.class);
+        startActivity(intent);
+        Looper.loop();
+
+      }
+      if (response != null && response.code() == 200) {
+        // 存入数据
+        List<Group> grouplist =null;
+        try {
+          String groupStr = response.body().string();
+          grouplist = JsonUtils.parseList(groupStr, Group.class);
+        } catch (IOException e) {
+          e.printStackTrace();
+        }
+        Message msg = new Message();
+        msg.what = 1;
+        msg.obj = grouplist;
+        uiHandler.sendMessage(msg);
+
+      }
+
+    }
+  }
 
 }

@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.os.Build;
 import android.os.Looper;
 import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
@@ -15,6 +16,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.ImageView;
@@ -25,50 +27,44 @@ import com.example.wujia2.LoginActivity;
 import com.example.wujia2.R;
 import com.example.wujia2.pojo.Circle;
 import com.example.wujia2.pojo.User;
-
 import com.example.wujia2.utils.HttpUtil;
 import com.example.wujia2.utils.JsonUtils;
 import com.lzy.imagepicker.ImagePicker;
 import com.lzy.imagepicker.bean.ImageItem;
 import com.lzy.imagepicker.ui.ImageGridActivity;
 import com.lzy.ninegrid.ImageInfo;
-
 import java.io.File;
 import java.io.IOException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
-
 import okhttp3.Response;
-
+import static com.example.wujia2.MyApplication.SERVER_MICRO_URL;
+import static com.example.wujia2.MyApplication.SERVER_UPLOAD_URL;
 
 public class EditActivity extends AppCompatActivity {
     private EditText et_send;
     private GridView publishGridView;
     private GridAdapter gridAdapter;
-    private TextView tv_upload,tv_cancle;
+    private TextView tv_upload, tv_cancle;
     private int size = 0;
     private String content;
-    private User user;
     private ArrayList<ImageItem> imageItems;
     ProgressDialog dialog = null;//进度条
-    private  List<String> imagesUrl =new ArrayList<>();
+    private List<String> imagesUrl = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setNavigation();
         setContentView(R.layout.photo_edit);
-        
         intiView();
     }
 
     private void intiView() {
-        et_send= (EditText) findViewById(R.id.et_content);
-        tv_upload= (TextView) findViewById(R.id.tv_send);
-        tv_cancle=findViewById(R.id.tv_cancle);
-        user=new User();
-        publishGridView= (GridView) findViewById(R.id.publishGridView);
+        et_send = (EditText) findViewById(R.id.et_content);
+        tv_upload = (Button) findViewById(R.id.tv_send);
+        tv_cancle = findViewById(R.id.tv_cancle);
+        publishGridView = (GridView) findViewById(R.id.publishGridView);
         gridAdapter = new GridAdapter();
         publishGridView.setAdapter(gridAdapter);
 
@@ -81,17 +77,14 @@ public class EditActivity extends AppCompatActivity {
                     toast("发表不能为空");
                 } else {
                     tv_upload.setEnabled(false);
-
-
-                            tv_upload_database();
-
+                    tv_upload_database();
                 }
             }
         });
         tv_cancle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               EditActivity.this.finish();
+                EditActivity.this.finish();
             }
         });
     }
@@ -118,22 +111,22 @@ public class EditActivity extends AppCompatActivity {
         dialog.show();
 
 
-
         new Thread() {
             @Override
             public void run() {
                 Response response = null;
-                for(int j =0 ;j<filePaths.length; j++){
+                for (int j = 0; j < filePaths.length; j++) {
 
-                    String fileName =filePaths[j].substring(filePaths[j].lastIndexOf("/")+1);
+                    String fileName = filePaths[j].substring(filePaths[j].lastIndexOf("/") + 1);
                     try {
-                        response = HttpUtil.requestPostBySynWithFormData("http://192.168.1.136:8082/upload/image", filePaths[j],fileName);
+                        response = HttpUtil.requestPostBySynWithFormData(SERVER_UPLOAD_URL+"upload/image", filePaths[j], fileName);
                     } catch (IOException e) {
                         Looper.prepare();
                         Toast.makeText(EditActivity.this, "内部错误，请稍后再试！", Toast.LENGTH_SHORT).show();
                         dialog.dismiss();
                         Looper.loop();
                         break;
+
                     }
                     if (response != null && response.code() != 200) {
                         // 存入数据
@@ -160,14 +153,11 @@ public class EditActivity extends AppCompatActivity {
                 }
                 dialog.dismiss();
 
-//                toast("发布中...");
-
-                Circle circle =new Circle();
+                Circle circle = new Circle();
                 circle.setImages(JsonUtils.serialize(imagesUrl));
                 circle.setContent(content);
                 circle.setGroupIds("[5000000,5000001]");
-                String requestPara =JsonUtils.serialize(circle);
-
+                String requestPara = JsonUtils.serialize(circle);
                 SharedPreferences preferences;
                 preferences = getSharedPreferences("user", MODE_PRIVATE);
                 // 读取SharedPreferences里的token数据
@@ -177,18 +167,18 @@ public class EditActivity extends AppCompatActivity {
                     Intent intent = new Intent(EditActivity.this, LoginActivity.class);
                     startActivity(intent);
                 }
-
                 try {
-                    response = HttpUtil.requestPutBySyn("http://192.168.1.136:10010/api/item/circle", requestPara,token);
+                    response = HttpUtil.requestPutBySyn(SERVER_MICRO_URL+"api/item/circle", requestPara, token);
                 } catch (IOException e) {
                     Looper.prepare();
                     Toast.makeText(EditActivity.this, "内部错误，请稍后再试！", Toast.LENGTH_SHORT).show();
                     Looper.loop();
+                    return;
                 }
 
-                if (response != null && (response.code() == 406||response.code() == 403)) {
+                if (response != null && (response.code() == 406 || response.code() == 403)) {
                     Looper.prepare();
-                    Toast.makeText( EditActivity.this, "无权访问 未登陆！", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(EditActivity.this, "无权访问 未登陆！", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(EditActivity.this, LoginActivity.class);
                     startActivity(intent);
                     Looper.loop();
@@ -196,16 +186,18 @@ public class EditActivity extends AppCompatActivity {
                 }
                 if (response != null && response.code() == 201) {
                     et_send.setText("");
-//                    toast("yes!发表成功");
+                    Looper.prepare();
+                    toast("发表成功");
                     finish();
+                    Looper.loop();
                 }
 
             }
         }.start();
 
 
-
     }
+
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -214,12 +206,13 @@ public class EditActivity extends AppCompatActivity {
                 ArrayList<ImageInfo> imageInfo = new ArrayList<>();
                 imageItems = (ArrayList<ImageItem>) data.getSerializableExtra(ImagePicker.EXTRA_RESULT_ITEMS);
                 gridAdapter.notifyDataSetChanged();
-                size=imageItems.size();
+                size = imageItems.size();
             } else {
                 toast("没有选择图片");
             }
         }
     }
+
     private class GridAdapter extends BaseAdapter {
         public GridAdapter() {
         }
@@ -229,7 +222,7 @@ public class EditActivity extends AppCompatActivity {
             if (imageItems == null)
                 return 1;
             else
-                return imageItems.size()+1;
+                return imageItems.size() + 1;
         }
 
         @Override
@@ -262,7 +255,7 @@ public class EditActivity extends AppCompatActivity {
                     File file = new File(imageItems.get(i).path);
                     if (file.exists()) {
                         Bitmap bm = BitmapFactory.decodeFile(imageItems.get(i).path);
-                        holder.image_voice.setImageBitmap(CircleTransform.centerSquareScaleBitmap(bm,100));
+                        holder.image_voice.setImageBitmap(CircleTransform.centerSquareScaleBitmap(bm, 100));
                     }
                 }
             }
@@ -281,6 +274,7 @@ public class EditActivity extends AppCompatActivity {
             private ImageView image_voice;
         }
     }
+
     /**
      * 添加图片哦
      */
@@ -289,21 +283,24 @@ public class EditActivity extends AppCompatActivity {
         imagePicker.setImageLoader(new ImageLoader());
         imagePicker.setMultiMode(true);   //多选
         imagePicker.setShowCamera(true);  //显示拍照按钮
-        imagePicker.setSelectLimit(6);    //最多选择X张
+        imagePicker.setSelectLimit(12);    //最多选择X张
         imagePicker.setCrop(false);       //不进行裁剪
         Intent intent = new Intent(EditActivity.this, ImageGridActivity.class);
         startActivityForResult(intent, 100);
     }
-    /*
-        获取时间
-    */
-    public String getTime() {
-        SimpleDateFormat formatter = new SimpleDateFormat("yyyy年MM月dd日 HH:mm:ss");
-        Date curDate = new Date(System.currentTimeMillis());//获取当前时间
-        return formatter.format(curDate);
-    }
+
     //Toast
-    private void toast(String date){
+    private void toast(String date) {
         Toast.makeText(this, date, Toast.LENGTH_SHORT).show();
+    }
+
+    private void setNavigation() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            getWindow().setStatusBarColor(getResources().getColor(R.color.white)); // 设置状态栏颜色
+            getWindow()
+                    .getDecorView()
+                    .setSystemUiVisibility(
+                            View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN | View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+        }
     }
 }

@@ -41,7 +41,7 @@
                     android:layout_gravity="center"
                     android:layout_marginRight="50dp"
                     android:layout_marginLeft="50dp"
-                    android:textColor="#9F9FA0"
+                    android:inputType="" android:textColor="#9F9FA0"
                     android:textColorHint="#9F9FA0"
                     android:hint="your username"/>
 
@@ -61,6 +61,7 @@
                     android:background="@null"
                     android:layout_gravity="center"
                     android:hint="your password"
+                    android:inputType="textPassword"
                     android:textColor="#9F9FA0"
                     android:textColorHint="#9F9FA0"
                     android:layout_marginLeft="50dp"

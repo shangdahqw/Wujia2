@@ -33,7 +33,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@mipmap/bg"
-                    android:scaleType="fitXY" />
+                    android:contentDescription="TODO" android:contentDescription="TODO" android:scaleType="fitXY" />
 
                 <com.makeramen.roundedimageview.RoundedImageView
                     android:id="@+id/userIcon"
@@ -67,6 +67,7 @@
         android:id="@+id/spaceTopChange"
         android:layout_width="match_parent"
         android:layout_height="55dp"
+        android:layout_marginTop="20dp"
         android:background="#003793c7">
 
         <ImageView
@@ -75,7 +76,7 @@
             android:layout_height="25dp"
             android:layout_centerVertical="true"
             android:layout_marginLeft="5dp"
-            android:src="@mipmap/left_arrow" />
+            android:contentDescription="TODO" android:contentDescription="TODO" android:src="@mipmap/arrow_left_white" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -93,7 +94,7 @@
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:layout_marginRight="10dp"
-            android:src="@mipmap/addpost" />
+            android:contentDescription="TODO" android:contentDescription="TODO" android:src="@mipmap/photo_take_white" />
     </RelativeLayout>
 
 </RelativeLayout>

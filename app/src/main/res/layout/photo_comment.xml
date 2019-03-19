@@ -3,8 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-   >
+    android:orientation="vertical">
 
 
     <include layout="@layout/photo_head" ></include>
@@ -45,8 +44,8 @@
                     android:layout_alignTop="@+id/comment_friend_icon"
                     android:layout_marginStart="104dp"
                     android:text="李明明"
-                    android:textColor="@android:color/holo_red_dark"
-                    android:textSize="20sp"
+                    android:textColor="@color/app_theme"
+                    android:textSize="18sp"
                     android:textStyle="bold" />
 
                 <com.makeramen.roundedimageview.RoundedImageView
@@ -102,7 +101,7 @@
                     app:ngv_singleImageSize="150dp" />
                 <LinearLayout
 
-                    android:layout_width="match_parent"
+                    android:layout_width="match_parent" android:baselineAligned="false" 
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp">
 
@@ -125,15 +124,16 @@
                             android:layout_alignParentRight="true"
                             android:layout_gravity="center"
                             android:layout_below="@id/tv_comm_content"
-                            android:drawableLeft="@mipmap/good_black"
+                            android:drawableLeft="@mipmap/good_coment"
                             android:gravity="center"
                             android:text="156"
                             android:textColor="#888888"
                             android:layout_marginTop="4dip"
-                            android:layout_marginBottom="4dip"
-                            android:layout_marginLeft="8dip"
+                            android:layout_marginBottom="6dip"
+                            android:layout_marginLeft="40dip"
                             android:layout_marginRight="8dip"
                             />
+
 
                         <RelativeLayout
                             android:layout_width="match_parent"
@@ -142,12 +142,12 @@
 
                             <ImageView
                                 android:id="@+id/comm_repy"
-                                android:layout_width="20dp"
-                                android:layout_height="20dp"
+                                android:layout_width="25dp"
+                                android:layout_height="25dp"
                                 android:layout_marginTop="5dp"
                                 android:layout_alignParentRight="true"
-                                android:layout_marginRight="8dp"
-                                android:src="@mipmap/say" />
+                                android:layout_marginRight="20dp"
+                                android:contentDescription="TODO" android:contentDescription="TODO" android:src="@mipmap/say" />
                         </RelativeLayout>
 
 
@@ -191,24 +191,28 @@
 
         <EditText
             android:id="@+id/ed_comm"
-            android:hint="说两句"
+            android:hint="  请输入..."
             android:focusable="true"
             android:focusableInTouchMode="true"
             android:layout_weight="1"
-            android:background="@color/white"
+            android:background="@drawable/send_edit"
             android:layout_width="match_parent"
-            android:layout_height="45dp" />
+            android:inputType=""
+            android:layout_height="45dp"
+            android:layout_marginLeft="10dp"
+            />
 
         <Button
             android:id="@+id/btn_comm"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:layout_marginRight="0dp"
-            android:background="@android:color/holo_red_dark"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/buttonstyle"
             android:layout_weight="3"
             android:onClick="reply"
             android:padding="3dp"
             android:text="发表"
+            android:layout_marginLeft="5dp"
             android:textColor="@color/white" />
     </LinearLayout>
 

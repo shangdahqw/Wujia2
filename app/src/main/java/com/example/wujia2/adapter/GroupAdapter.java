@@ -9,8 +9,11 @@ import android.widget.BaseAdapter;
 import com.allen.library.SuperTextView;
 import com.example.wujia2.R;
 import com.example.wujia2.pojo.Group;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
+
+import static com.example.wujia2.MyApplication.SERVER_IMAGE_URL;
 
 
 /**
@@ -22,13 +25,15 @@ public class GroupAdapter extends BaseAdapter {
 
     private List<Group> groupList;
     private LayoutInflater inflater;
+    private Context context;
+
     public GroupAdapter() {}
 
     public GroupAdapter(List<Group> groupList,Context context) {
         this.groupList = groupList;
         this.inflater=LayoutInflater.from(context);
+        this.context=context;
     }
-
 
     @Override
     public int getCount() {
@@ -54,6 +59,10 @@ public class GroupAdapter extends BaseAdapter {
         SuperTextView superTextView = view.findViewById(R.id.super_tv);
         superTextView.setLeftTopString(group.getGroupName());
         superTextView.setLeftBottomString(group.getId().toString());
+        Picasso.with(context)
+                .load(group.getImageUrl())
+                .placeholder(R.mipmap.group_head)
+                .into(superTextView.getLeftIconIV());
 
         return view;
     }
