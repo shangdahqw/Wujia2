@@ -40,18 +40,10 @@
         stv:sBottomDividerLineMarginLR="20dp" />
 
 
-    <com.allen.library.SuperTextView
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginTop="40dp"
-        stv:sLeftViewMarginLeft="20dp"
-        stv:sDividerLineType="bottom"
-        stv:sLeftTextString="我加入的群"
-
-        />
     <ListView android:id="@+id/mylist"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:divider="#00000000" />
 
 
 

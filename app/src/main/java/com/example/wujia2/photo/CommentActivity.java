@@ -12,7 +12,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
@@ -26,10 +25,8 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.example.wujia2.LoginActivity;
 import com.example.wujia2.R;
-import com.example.wujia2.pojo.Circle;
 import com.example.wujia2.pojo.Reply;
 import com.example.wujia2.pojo.ReplyUserVo;
-import com.example.wujia2.pojo.User;
 import com.example.wujia2.utils.DateConverter;
 import com.example.wujia2.utils.HttpUtil;
 import com.example.wujia2.utils.JsonUtils;
@@ -39,9 +36,7 @@ import com.lzy.ninegrid.preview.NineGridViewClickAdapter;
 import com.makeramen.roundedimageview.RoundedImageView;
 
 import java.io.IOException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import okhttp3.Response;
@@ -61,11 +56,11 @@ public class CommentActivity extends AppCompatActivity implements View.OnClickLi
     TextView tv_name, tv_time, tv_content, tv_good;
     private NineGridView nineGridView;
     private Button btn_reply;
-    private EditText repy_content;
+    private EditText et_reply;
     private AlertDialog al;
     private ArrayList<String> picList = new ArrayList<>();
     private LinearLayout ly_opte, area_commit;
-    private ImageView et_reply, back_deal;//返回
+    private ImageView im_reply, back_deal;//返回
     private Boolean isHaven;//是否存在图片
     private String auhthor_url;//帖子作者id
     private Long circle_id;
@@ -75,6 +70,7 @@ public class CommentActivity extends AppCompatActivity implements View.OnClickLi
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.photo_comment);
+        setSoftInput();
         setNavigation();
         init();
         initListener();
@@ -92,11 +88,11 @@ public class CommentActivity extends AppCompatActivity implements View.OnClickLi
         tv_good = findViewById(R.id.item_good_comment);
         head = findViewById(R.id.comment_friend_icon);
         btn_reply = findViewById(R.id.btn_comm);
-        repy_content = findViewById(R.id.ed_comm);
+        et_reply = findViewById(R.id.et_reply);
         nineGridView = findViewById(R.id.comm_nine);
         area_commit = findViewById(R.id.area_commit);
         back_deal = findViewById(R.id.back_deal);
-        et_reply = findViewById(R.id.comm_repy);
+        im_reply = findViewById(R.id.comm_repy);
         ly_opte = findViewById(R.id.ly_opte);
         tv_name.setText(getIntent().getStringExtra("username"));
         tv_time.setText(getIntent().getStringExtra("time"));
@@ -118,14 +114,23 @@ public class CommentActivity extends AppCompatActivity implements View.OnClickLi
             picList = getIntent().getStringArrayListExtra("infoList");
             initPics(picList);
         }
-
         findComments();
 
 
     }
 
     void initListener() {
-        et_reply.setOnClickListener(new View.OnClickListener() {
+
+        btn_reply.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //评论
+                String content = et_reply.getText().toString();
+                publishComment(content);
+            }
+        });
+
+        im_reply.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 reply2();
@@ -165,7 +170,7 @@ public class CommentActivity extends AppCompatActivity implements View.OnClickLi
 
                 Reply reply = new Reply();
                 reply.setCircleId(circle_id);
-                reply.setContent(repy_content.getText().toString());
+                reply.setContent(et_reply.getText().toString());
                 reply.setUserTo(user_id);
                 String requestPara = JsonUtils.serialize(reply);
 
@@ -248,6 +253,10 @@ public class CommentActivity extends AppCompatActivity implements View.OnClickLi
                     Looper.loop();
 
                 }
+                if(response !=null && response.code() ==400){
+                    al.dismiss();
+                    return;
+                }
                 if (response != null && response.code() == 200) {
                     // 存入数据
                     List<ReplyUserVo> replyUserVolist = null;
@@ -307,10 +316,19 @@ public class CommentActivity extends AppCompatActivity implements View.OnClickLi
     弹出输入框
      */
     public void reply2() {
-        repy_content.requestFocus();
-        InputMethodManager imm = (InputMethodManager) repy_content.getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+        et_reply.requestFocus();
+        InputMethodManager imm = (InputMethodManager) et_reply.getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
         imm.toggleSoftInput(0, InputMethodManager.SHOW_FORCED);
     }
+    /*
+设置输入框
+ */
+    private void setSoftInput() {
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
+
+
+    }
+
 
 
     /*
@@ -339,7 +357,7 @@ public class CommentActivity extends AppCompatActivity implements View.OnClickLi
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.ed_comm:
+            case R.id.et_reply:
                 reply2();
                 break;
         }
@@ -357,21 +375,12 @@ public class CommentActivity extends AppCompatActivity implements View.OnClickLi
                     adapter = new CommentAdapter(list, CommentActivity.this);
                     adapter.notifyDataSetInvalidated();
                     listView.setAdapter(adapter);
-                    btn_reply.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            //评论
-                            String content = repy_content.getText().toString();
-                            publishComment(content);
-                        }
-                    });
-                    al.dismiss();
                     break;
                 case 2:
                     findComments();
                     toast("评论成功");
                     adapter.notifyDataSetInvalidated();
-                    repy_content.setText("");
+                    et_reply.setText("");
                     break;
             }
         }
