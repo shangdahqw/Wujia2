@@ -39,9 +39,14 @@ dependencies {
     //图片选择包
     implementation 'com.makeramen:roundedimageview:2.3.0'
     //圆形头像库
-    implementation 'com.github.bumptech.glide:glide:4.0.0'
+    implementation 'com.github.bumptech.glide:glide:3.7.0'
     //缓存图片包
     implementation 'com.lzy.widget:imagepicker:+'
     //沉浸
     implementation files('libs/picasso-2.5.2.jar')
+
+    implementation 'cjt.library.wheel:camera:1.1.9'
+    implementation 'com.github.af913337456:WeChatVideoView:1.0'
+
+
 }

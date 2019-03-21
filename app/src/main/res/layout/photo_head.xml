@@ -19,7 +19,8 @@
             android:layout_height="25dp"
             android:layout_centerVertical="true"
             android:layout_marginLeft="5dp"
-            android:contentDescription="TODO" android:contentDescription="TODO" android:src="@mipmap/arrow_left" />
+            android:contentDescription="TODO"
+            android:src="@mipmap/arrow_left" />
 
         <TextView
             android:layout_width="wrap_content"

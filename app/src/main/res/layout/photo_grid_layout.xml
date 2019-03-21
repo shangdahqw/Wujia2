@@ -3,7 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 <ImageView
-    android:layout_width="80dp" android:contentDescription="TODO"  android:contentDescription="TODO" 
+    android:layout_width="80dp"
+    android:contentDescription="TODO"
     android:id="@+id/gird_img"
     android:layout_height="80dp" />
 </LinearLayout>

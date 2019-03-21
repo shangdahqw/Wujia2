@@ -46,17 +46,6 @@
                 android:text="2018/08/01" />
         </LinearLayout>
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:contentDescription="TODO" android:contentDescription="TODO" android:src="@mipmap/down_arrow" />
-        </RelativeLayout>
     </LinearLayout>
     <TextView
         android:layout_width="match_parent"
@@ -79,6 +68,33 @@
         app:ngv_mode="grid"
         app:ngv_singleImageRatio="1"
         app:ngv_singleImageSize="250dp" />
+
+
+    <FrameLayout
+        android:id="@+id/frameLayout"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/pic_iiv"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:background="@color/ip_color_primary"
+            android:scaleType="fitXY" />
+
+        <ImageView
+            android:id="@+id/start_iv"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:src="@mipmap/play" />
+    </FrameLayout>
+
+
 
 
 
@@ -108,7 +124,8 @@
                     android:layout_height="25dp"
                     android:layout_alignParentRight="true"
                     android:layout_marginRight="20dp"
-                    android:contentDescription="TODO" android:contentDescription="TODO" android:src="@mipmap/good_black" />
+                    android:contentDescription="TODO"
+                    android:src="@mipmap/good_black" />
             </RelativeLayout>
 
             <RelativeLayout
@@ -122,7 +139,8 @@
                     android:layout_height="25dp"
                     android:layout_alignParentRight="true"
                     android:layout_marginRight="20dp"
-                    android:contentDescription="TODO" android:contentDescription="TODO" android:src="@mipmap/say" />
+                    android:contentDescription="TODO"
+                    android:src="@mipmap/say" />
             </RelativeLayout>
 
         </LinearLayout>

@@ -147,7 +147,8 @@
                                 android:layout_marginTop="5dp"
                                 android:layout_alignParentRight="true"
                                 android:layout_marginRight="20dp"
-                                android:contentDescription="TODO" android:contentDescription="TODO" android:src="@mipmap/say" />
+                                android:contentDescription="TODO"
+                                android:src="@mipmap/say" />
                         </RelativeLayout>
 
 
