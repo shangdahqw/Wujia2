@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:stv="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@color/colorPrimary"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+
+        android:layout_width="match_parent"
+        android:layout_marginTop="25dp"
+        android:layout_height="50dp">
+
+        <Button
+            android:id="@+id/tv_send2"
+            android:layout_width="wrap_content"
+            android:layout_height="32dp"
+            android:layout_marginLeft="280dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/buttonstyle"
+            android:text="发表"
+            android:textStyle="bold"
+            android:textColor="@color/colorPrimary" />
+
+        <TextView
+            android:id="@+id/tv_cancle2"
+            android:textStyle="bold"
+            android:textSize="17dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:textColor="@android:color/black"
+            android:layout_marginStart="11dp"
+            android:text="取消" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_marginTop="10dp"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/et_content2"
+            android:layout_width="match_parent"
+            android:inputType=""
+            android:layout_height="60dp"
+            android:layout_marginLeft="20dp"
+            android:layout_margin="10dp"
+            android:background="#00000000"
+            android:hint="这一刻的想法..." />
+
+        <FrameLayout
+            android:id="@+id/frameLayout2"
+            android:layout_width="150dp"
+            android:layout_height="100dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
+            android:visibility="gone" >
+
+            <ImageView
+                android:id="@+id/pic_iiv2"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:background="@color/ip_color_primary"
+                android:scaleType="fitXY" />
+
+            <ImageView
+                android:id="@+id/start_iv2"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_gravity="center"
+                android:src="@mipmap/play" />
+        </FrameLayout>
+
+    </LinearLayout>
+</LinearLayout>

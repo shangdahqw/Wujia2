@@ -1,4 +1,4 @@
-package com.example.wujia2.video;
+package com.example.wujia2.photo;
 
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
@@ -58,21 +58,21 @@ public class CameraActivity extends AppCompatActivity {
             public void captureSuccess(Bitmap bitmap) {
                 //获取图片bitmap
 //                Log.i("JCameraView", "bitmap = " + bitmap.getWidth());
-                String path = FileUtil.saveBitmap("JCamera", bitmap);
-                Intent intent = new Intent();
-                intent.putExtra("path", path);
-                setResult(101, intent);
+//                String path = FileUtil.saveBitmap("JCamera", bitmap);
+//                Intent intent = new Intent();
+//                intent.putExtra("path", path);
+//                setResult(101, intent);
                 finish();
             }
 
             @Override
             public void recordSuccess(String url, Bitmap firstFrame) {
                 //获取视频路径
-                String path = FileUtil.saveBitmap("JCamera", firstFrame);
-                Log.i("CJT", "url = " + url + ", Bitmap = " + path);
-                Intent intent = new Intent();
-                intent.putExtra("path", url);
-                setResult(102, intent);
+//                String path = FileUtil.saveBitmap("JCamera", firstFrame);
+//                Log.i("CJT", "url = " + url + ", Bitmap = " + path);
+                Intent intent = new Intent(CameraActivity.this, EditCameraActivity.class);
+                intent.putExtra("videoLocalPath", url);
+                startActivity(intent);
                 finish();
             }
         });
@@ -86,7 +86,7 @@ public class CameraActivity extends AppCompatActivity {
         jCameraView.setRightClickListener(new ClickListener() {
             @Override
             public void onClick() {
-                Toast.makeText(CameraActivity.this,"Right",Toast.LENGTH_SHORT).show();
+                Toast.makeText(CameraActivity.this, "Right", Toast.LENGTH_SHORT).show();
             }
         });
 

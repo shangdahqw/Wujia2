@@ -47,7 +47,7 @@
 
         stv:sLeftViewMarginLeft="10dp"
         stv:sDividerLineType="bottom"
-        stv:sLeftTextString="照片"
+        stv:sLeftTextString="相册动态"
         stv:sLeftTextSize="18dp"
         stv:sRightIconRes="@mipmap/arrow_right" />
 
@@ -58,11 +58,11 @@
         android:layout_marginTop="10dp"
 
         stv:sLeftIconMarginLeft="15dp"
-        stv:sLeftIconRes="@mipmap/video"
+        stv:sLeftIconRes="@mipmap/photo"
 
         stv:sLeftViewMarginLeft="10dp"
         stv:sDividerLineType="bottom"
-        stv:sLeftTextString=" 视频"
+        stv:sLeftTextString=" 相册集"
         stv:sLeftTextSize="18dp"
         stv:sRightIconRes="@mipmap/arrow_right" />
 

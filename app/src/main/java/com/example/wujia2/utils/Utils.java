@@ -1,4 +1,4 @@
-package com.example.wujia2.video;
+package com.example.wujia2.utils;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;

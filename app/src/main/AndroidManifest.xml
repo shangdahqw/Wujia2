@@ -33,8 +33,10 @@
         <activity android:name="com.example.wujia2.photo.MainActivity"/>
         <activity android:name="com.example.wujia2.photo.CommentActivity"/>
         <activity android:name="com.example.wujia2.photo.EditActivity"/>
-        <activity android:name=".video.CameraActivity"/>
+        <activity android:name=".photo.CameraActivity"/>
         <activity android:name=".photo.PlayVideoActivity"/>
+        <activity android:name=".photo.EditCameraActivity"/>
+
 
 
 
