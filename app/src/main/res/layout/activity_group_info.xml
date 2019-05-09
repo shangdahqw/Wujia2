@@ -11,11 +11,12 @@
         android:layout_height="20dp"
         stv:sDividerLineType="none"
         />
+
     <com.allen.library.SuperTextView
-        android:id="@+id/alipay_stv"
+        android:id="@+id/group_stv"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        stv:sCenterBottomTextString="咱一家人"
+        stv:sCenterBottomTextString="咱们一家人(3)"
         stv:sCenterBottomTextColor="@android:color/black"
         stv:sCenterBottomTextSize="20sp"
         stv:sCenterViewGravity="center"
@@ -23,11 +24,32 @@
         stv:sLeftIconMarginLeft="15dp"
         stv:sLeftIconRes="@mipmap/arrow_left"
         />
+    <com.allen.library.SuperTextView
+        android:id="@+id/group_head"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginTop="20dp"
+
+        stv:sLeftIconMarginLeft="30dp"
+        stv:sLeftIconRes="@mipmap/group_head"
+        stv:sLeftIconHeight="70dp"
+        stv:sLeftIconWidth="70dp"
+        stv:sLeftIconShowCircle="true"
+
+        stv:sLeftTopTextString="相册简介"
+        stv:sLeftTopTextColor="@android:color/black"
+        stv:sLeftTopTextSize="18sp"
+        stv:sLeftTextString="吾家，记录美好家庭生活"
+        stv:sLeftTextColor="#979797"
+
+        stv:sLeftViewGravity="left_center"
+        stv:sDividerLineType="none"
+        stv:sRightIconRes="@mipmap/arrow_right"/>
 
     <com.allen.library.SuperTextView
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="20dp"
 
         stv:sLeftIconMarginLeft="15dp"
         stv:sLeftIconRes="@mipmap/photo_group"
@@ -51,18 +73,83 @@
         stv:sLeftTextString="群成员"
         stv:sLeftTextSize="18dp"
         stv:sRightIconRes="@mipmap/arrow_right" />
+
     <com.allen.library.SuperTextView
+        android:id="@+id/group_id"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginTop="10dp"
 
-        stv:sLeftIconMarginLeft="15dp"
-        stv:sLeftIconRes="@mipmap/notification"
-
-        stv:sLeftViewMarginLeft="10dp"
+        stv:sLeftViewMarginLeft="15dp"
         stv:sDividerLineType="bottom"
-        stv:sLeftTextString="群公告"
+        stv:sLeftTextString="群ID"
         stv:sLeftTextSize="18dp"
+        stv:sRightTextString="71235814"
+        stv:sRightTextSize="18dp"
+        stv:sRightViewMarginRight="35dp"
+        stv:sRightTextColor="#979797"
+        />
+    <com.allen.library.SuperTextView
+        android:id="@+id/group_name"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+
+        stv:sLeftViewMarginLeft="15dp"
+        stv:sDividerLineType="bottom"
+        stv:sLeftTextString="群名称"
+        stv:sLeftTextSize="18dp"
+        stv:sRightTextString="咱们一家人"
+        stv:sRightTextSize="18dp"
+        stv:sRightViewMarginRight="35dp"
+        stv:sRightTextColor="#979797"
+        />
+    <com.allen.library.SuperTextView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        stv:sLeftViewMarginLeft="15dp"
+        stv:sDividerLineType="bottom"
+        stv:sLeftTextString="群管理员"
+        stv:sLeftTextSize="18dp"
+        stv:sRightTextString="张三"
+        stv:sRightTextSize="18dp"
+        stv:sRightViewMarginRight="35dp"
+        stv:sRightTextColor="#979797"
+        />
+    <com.allen.library.SuperTextView
+        android:id="@+id/group_nickname"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        stv:sLeftViewMarginLeft="15dp"
+        stv:sDividerLineType="bottom"
+        stv:sLeftTextString="群备注"
+        stv:sLeftTextSize="18dp"
+        stv:sRightTextString="咱们一家人"
+        stv:sRightTextSize="18dp"
+        stv:sRightViewMarginRight="10dp"
+        stv:sRightTextColor="#979797"
         stv:sRightIconRes="@mipmap/arrow_right" />
+
+
+
+    <com.allen.library.SuperTextView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="30dp"
+
+        stv:sLeftViewGravity="center"
+        stv:sDividerLineType="bottom"
+        stv:sCenterTextString="邀请新成员"
+        stv:sCenterTextColor="@color/app_theme"
+        stv:sCenterTextSize="18dp" />
+    <com.allen.library.SuperTextView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        stv:sLeftViewGravity="center"
+        stv:sDividerLineType="bottom"
+        stv:sCenterTextString="删除并退出"
+        stv:sCenterTextColor="#d81e06"
+        stv:sCenterTextSize="18dp" />
+
 
 </LinearLayout>

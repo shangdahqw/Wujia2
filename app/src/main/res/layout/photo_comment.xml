@@ -9,39 +9,41 @@
     <include layout="@layout/photo_head" ></include>
 
     <com.example.wujia2.photo.GradScrollView
-        android:layout_marginTop="50dp"
         android:id="@+id/scrollview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scrollbars="none"
-        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="49dp"
+        android:scrollbars="none">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:orientation="vertical"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="100dp">
+                android:layout_height="90dp">
 
                 <TextView
                     android:id="@+id/tv_comment_time"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignBottom="@+id/comment_friend_icon"
                     android:layout_alignStart="@+id/tv_comment_username"
+                    android:layout_alignBottom="@+id/comment_friend_icon"
                     android:text="2018:8/1/14:01" />
 
                 <TextView
                     android:id="@+id/tv_comment_username"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
                     android:layout_alignTop="@+id/comment_friend_icon"
+                    android:layout_alignParentStart="true"
                     android:layout_marginStart="104dp"
                     android:text="李明明"
                     android:textColor="@color/app_theme"
@@ -64,95 +66,108 @@
                     app:riv_tile_mode="clamp" />
 
             </RelativeLayout>
+
             <LinearLayout
                 android:id="@+id/ly_opte"
                 android:layout_width="match_parent"
-                android:orientation="vertical"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/tv_comment_content"
                     android:layout_width="wrap_content"
-                    android:textSize="19sp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="8dp"
                     android:layout_marginTop="4dp"
+                    android:text="希望我万事都如意"
                     android:textColor="@android:color/black"
-                    android:text="希望我万事都如意" />
+                    android:textSize="19sp" />
+
                 <com.lzy.ninegrid.NineGridView
                     android:id="@+id/comm_nine"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="4dp"
-                    android:layout_marginRight="10dp"
                     android:layout_marginLeft="10dp"
                     android:layout_marginTop="5dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginBottom="4dp"
                     app:ngv_gridSpacing="4dp"
                     app:ngv_maxSize="9"
                     app:ngv_mode="grid"
                     app:ngv_singleImageRatio="1"
                     app:ngv_singleImageSize="150dp" />
+
+
+
+
                 <LinearLayout
 
-                    android:layout_width="match_parent" android:baselineAligned="false"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp">
+                    android:layout_marginTop="10dp"
+                    android:baselineAligned="false">
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"/>
-
-                    <LinearLayout
+                    <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1">
 
+                        <ImageView
+                            android:id="@+id/post_groups2"
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:layout_marginLeft="50dp"
+                            android:src="@mipmap/group2" />
                         <TextView
-
-                            android:id="@+id/item_good_comment"
+                            android:id="@+id/num_groups2"
                             android:layout_width="wrap_content"
-                            android:onClick="good"
                             android:layout_height="wrap_content"
-                            android:layout_alignParentRight="true"
-                            android:layout_gravity="center"
-                            android:layout_below="@id/tv_comm_content"
-                            android:drawableLeft="@mipmap/good_coment"
-                            android:gravity="center"
-                            android:text="156"
-                            android:textColor="#888888"
-                            android:layout_marginTop="4dip"
-                            android:layout_marginBottom="6dip"
-                            android:layout_marginLeft="40dip"
-                            android:layout_marginRight="8dip"
-                            />
+                            android:layout_marginLeft="80dp"
+                            android:text="3"/>
+                    </RelativeLayout>
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
 
-
-                        <RelativeLayout
-                            android:layout_width="match_parent"
+                        <ImageView
+                            android:id="@+id/comm_repy"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_marginLeft="60dp"
+                            android:src="@mipmap/say" />
+                        <TextView
+                            android:id="@+id/num_reply2"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1">
+                            android:layout_marginLeft="85dp"
+                            android:text="0"/>
+                    </RelativeLayout>
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
 
-                            <ImageView
-                                android:id="@+id/comm_repy"
-                                android:layout_width="25dp"
-                                android:layout_height="25dp"
-                                android:layout_marginTop="5dp"
-                                android:layout_alignParentRight="true"
-                                android:layout_marginRight="20dp"
-                                android:contentDescription="TODO"
-                                android:src="@mipmap/say" />
-                        </RelativeLayout>
-
-
-
-                    </LinearLayout>
+                        <ImageView
+                            android:id="@+id/comm_good"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_marginLeft="60dp"
+                            android:src="@mipmap/good_black" />
+                        <TextView
+                            android:id="@+id/num_likes2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="85dp"
+                            android:text="0"/>
+                    </RelativeLayout>
 
                 </LinearLayout>
+
                 <View
                     android:layout_width="match_parent"
-                    android:layout_marginTop="2dp"
-                    android:layout_height="1dp">
+                    android:layout_height="1dp"
+                    android:layout_marginTop="2dp">
 
                 </View>
 
@@ -162,6 +177,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:divider="#00000000" />
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="45dp">

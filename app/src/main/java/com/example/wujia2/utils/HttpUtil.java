@@ -174,15 +174,15 @@ public class HttpUtil {
    * 登入
    *
    * @param requestUrl
-   * @param username
+   * @param phone
    * @param password
    * @return
    * @throws IOException
    */
-  public static Response login(String requestUrl, String username, String password) {
+  public static Response login(String requestUrl, String phone, String password) {
 
     RequestBody requestBody =
-        new FormBody.Builder().add("username", username).add("password", password).build();
+        new FormBody.Builder().add("phone", phone).add("password", password).build();
     Request request = new Request.Builder().url(requestUrl).post(requestBody).build();
 
     Response response = null;

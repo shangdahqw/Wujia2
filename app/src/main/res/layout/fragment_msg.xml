@@ -35,6 +35,95 @@
 
 
 
+    <com.allen.library.SuperTextView
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_marginTop="20dp"
+        stv:sLeftIconMarginLeft="30dp"
+        stv:sLeftIconRes="@mipmap/image_head2"
+        stv:sLeftIconHeight="40dp"
+        stv:sLeftIconWidth="40dp"
+        stv:sLeftIconShowCircle="true"
+        stv:sRightIconMarginRight="340dp"
+        stv:sRightIconRes="@mipmap/notice"
+        stv:sLeftTopTextString="周文发表了相册动态"
+        stv:sLeftTopTextColor="#515151"
+        stv:sLeftTopTextSize="18sp"
+        stv:sLeftTextString="''这是测试视频''"
+        stv:sLeftTextColor="#979797"
+        stv:sLeftBottomTextString="                                     2019-04-11 18:20:06"
+        stv:sLeftBottomTextColor="#979797"
+        stv:sLeftViewGravity="left_center" />
 
+
+    <com.allen.library.SuperTextView
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        stv:sLeftIconMarginLeft="30dp"
+        stv:sLeftIconRes="@mipmap/image_head3"
+        stv:sLeftIconHeight="40dp"
+        stv:sLeftIconWidth="40dp"
+        stv:sLeftIconShowCircle="true"
+        stv:sRightIconMarginRight="340dp"
+        stv:sRightIconRes="@mipmap/notice"
+        stv:sLeftTopTextString="李成评论了你"
+        stv:sLeftTopTextColor="#515151"
+        stv:sLeftTopTextSize="18sp"
+        stv:sLeftTextString="''照片拍的不错哦''"
+        stv:sLeftTextColor="#979797"
+        stv:sLeftBottomTextString="                                     2019-04-11 17:19:20"
+        stv:sLeftBottomTextColor="#979797"
+        stv:sLeftViewGravity="left_center" />
+    <com.allen.library.SuperTextView
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        stv:sLeftIconMarginLeft="30dp"
+        stv:sLeftIconRes="@mipmap/image_head4"
+        stv:sLeftIconHeight="40dp"
+        stv:sLeftIconWidth="40dp"
+        stv:sLeftIconShowCircle="true"
+        stv:sRightIconMarginRight="340dp"
+        stv:sRightIconRes="@mipmap/notice"
+        stv:sLeftTopTextString="杨子点赞了你"
+        stv:sLeftTopTextColor="#515151"
+        stv:sLeftTopTextSize="18sp"
+        stv:sLeftTextString="''今日份照片，有点美！''"
+        stv:sLeftTextColor="#979797"
+        stv:sLeftBottomTextString="                                     2019-04-11 16:53:28"
+        stv:sLeftBottomTextColor="#979797"
+        stv:sLeftViewGravity="left_center" />
+
+    <com.allen.library.SuperTextView
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        stv:sLeftIconMarginLeft="30dp"
+        stv:sLeftIconRes="@mipmap/image_head2"
+        stv:sLeftIconHeight="40dp"
+        stv:sLeftIconWidth="40dp"
+        stv:sLeftIconShowCircle="true"
+        stv:sLeftTopTextString="入群通知"
+        stv:sLeftTopTextColor="#515151"
+        stv:sLeftTopTextSize="18sp"
+        stv:sLeftTextString="周文加入了群相册''外婆家''"
+        stv:sLeftTextColor="#979797"
+        stv:sLeftBottomTextString="                                     2019-04-07 12:20:36"
+        stv:sLeftBottomTextColor="#979797"
+        stv:sLeftViewGravity="left_center" />
+    <com.allen.library.SuperTextView
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        stv:sLeftIconMarginLeft="30dp"
+        stv:sLeftIconRes="@mipmap/image_head2"
+        stv:sLeftIconHeight="40dp"
+        stv:sLeftIconWidth="40dp"
+        stv:sLeftIconShowCircle="true"
+        stv:sLeftTopTextString="入群审核通知"
+        stv:sLeftTopTextColor="#515151"
+        stv:sLeftTopTextSize="18sp"
+        stv:sLeftTextString="周文申请加入群相册''外婆家''"
+        stv:sLeftTextColor="#979797"
+        stv:sLeftBottomTextString="                                     2019-04-07 12:20:34"
+        stv:sLeftBottomTextColor="#979797"
+        stv:sLeftViewGravity="left_center" />
 
 </LinearLayout>

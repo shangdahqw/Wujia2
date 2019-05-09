@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:stv="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <com.allen.library.SuperTextView
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        stv:sDividerLineType="none"
+        />
+    <com.allen.library.SuperTextView
+        android:id="@+id/alipay_stv"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        stv:sLeftBottomTextString="取消"
+        stv:sLeftBottomTextSize="18dp"
+        stv:sRightTextString="搜索"
+        stv:sRightTextSize="18dp"
+        stv:sRightTextColor="@color/app_theme"
+        stv:sCenterViewGravity="center"
+        stv:sDividerLineType="none"
+        stv:sLeftViewMarginLeft="20dp"
+        stv:sRightViewMarginRight="20dp"
+
+        />
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="10dp"
+            android:src="@mipmap/search2"
+
+            />
+
+        <com.example.wujia2.utils.ClearEditText
+            android:id="@+id/et_clear"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:background="@drawable/clear_edittext"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="55dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:singleLine="true"
+            android:textSize="16sp" />
+
+
+    </RelativeLayout>
+
+</LinearLayout>

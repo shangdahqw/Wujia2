@@ -11,6 +11,25 @@ public class Circle {
   private String images; // 家人圈图片部分
   private Long userId;
 
+  public Long getNumReply() {
+    return numReply;
+  }
+
+  public void setNumReply(Long numReply) {
+    this.numReply = numReply;
+  }
+
+  public Long getNumLikes() {
+    return numLikes;
+  }
+
+  public void setNumLikes(Long numLikes) {
+    this.numLikes = numLikes;
+  }
+
+  private Long numReply;
+  private Long numLikes;
+
   public Long getId() {
     return id;
   }

@@ -11,10 +11,27 @@ public class Post {
     private String content;   // 说说内容
     private List<String> headImgUrl; //图片的URL集合
     private boolean haveIcon;  //判断是否有图片
-    private Integer praise;//点赞
     private String time;//发表时间
+    private Long numReply;
+    private Long numLikes;
 
 
+
+    public Long getNumReply() {
+        return numReply;
+    }
+
+    public void setNumReply(Long numReply) {
+        this.numReply = numReply;
+    }
+
+    public Long getNumLikes() {
+        return numLikes;
+    }
+
+    public void setNumLikes(Long numLikes) {
+        this.numLikes = numLikes;
+    }
     public Long getId() {
         return id;
     }
@@ -43,13 +60,6 @@ public class Post {
         this.time = time;
     }
 
-    public Integer getPraise() {
-        return praise;
-    }
-
-    public void setPraise(Integer praise) {
-        this.praise = praise;
-    }
 
     public String getUserIcon() {
         return userIcon;

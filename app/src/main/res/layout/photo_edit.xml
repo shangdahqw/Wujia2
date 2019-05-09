@@ -63,5 +63,16 @@
         android:numColumns="4"
         android:verticalSpacing="5dp" />
 
+    <com.allen.library.SuperTextView
+        android:id="@+id/choose_group"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="30dp"
+        stv:sLeftViewMarginLeft="20dp"
+        stv:sDividerLineType="bottom"
+        stv:sLeftTextString="想分享的相册群组"
+        stv:sRightViewMarginRight="40dp"
+        stv:sRightIconRes="@mipmap/arrow_right"/>
+
 </LinearLayout>
 </LinearLayout>

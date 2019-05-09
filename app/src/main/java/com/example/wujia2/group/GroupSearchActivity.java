@@ -8,7 +8,7 @@ import android.view.View;
 import com.example.wujia2.R;
 
 /** Created by bruce on 2016/11/1. HomeActivity 主界面 */
-public class GroupCreateActivity extends AppCompatActivity {
+public class GroupSearchActivity extends AppCompatActivity {
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -23,7 +23,7 @@ public class GroupCreateActivity extends AppCompatActivity {
                       View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN | View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
     }
 
-    setContentView(R.layout.activity_group_create);
+    setContentView(R.layout.activity_group_search_before);
 
   }
 }

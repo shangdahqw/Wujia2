@@ -35,9 +35,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="忘了爱"
-                android:textColor="@color/text"
+                android:textColor="@color/app_theme"
                 android:textSize="20sp" />
-
             <TextView
                 android:id="@+id/post_time"
                 android:layout_width="wrap_content"
@@ -95,23 +94,21 @@
     </FrameLayout>
 
 
-
-
-
     <LinearLayout
-        android:layout_width="match_parent" android:baselineAligned="false" 
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp">
+        android:layout_marginTop="10dp"
+        android:baselineAligned="false">
+
+
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+            android:layout_marginBottom="5dp"
+            android:baselineAligned="false">
 
-        <LinearLayout
-            android:layout_width="match_parent" android:baselineAligned="false" 
-            android:layout_height="wrap_content"
-            android:layout_weight="1">
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -119,29 +116,57 @@
                 android:layout_weight="1">
 
                 <ImageView
-                    android:id="@+id/post_good"
+                    android:id="@+id/post_groups"
                     android:layout_width="25dp"
                     android:layout_height="25dp"
-                    android:layout_alignParentRight="true"
-                    android:layout_marginRight="20dp"
-                    android:contentDescription="TODO"
-                    android:src="@mipmap/good_black" />
+                    android:layout_marginLeft="50dp"
+                    android:src="@mipmap/group2" />
+                <TextView
+                    android:id="@+id/num_groups"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="80dp"
+                    android:text="3"/>
             </RelativeLayout>
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="2">
+                android:layout_weight="1">
 
                 <ImageView
                     android:id="@+id/post_repy"
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
-                    android:layout_alignParentRight="true"
-                    android:layout_marginRight="20dp"
-                    android:contentDescription="TODO"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginLeft="60dp"
                     android:src="@mipmap/say" />
+                <TextView
+                    android:id="@+id/num_reply"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="85dp"
+                    android:text="0"/>
             </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:id="@+id/post_good"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginLeft="60dp"
+                    android:src="@mipmap/good_black" />
+                <TextView
+                    android:id="@+id/num_likes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="85dp"
+                    android:text="0"/>
+            </RelativeLayout>
+
+
 
         </LinearLayout>
     </LinearLayout>

@@ -10,13 +10,13 @@
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:background="#003793c7"
-        android:layout_marginTop="10dp">
+        android:layout_marginTop="15dp">
 
 
         <ImageView
             android:id="@+id/back_deal"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
             android:layout_centerVertical="true"
             android:layout_marginLeft="5dp"
             android:contentDescription="TODO"
@@ -28,7 +28,6 @@
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
             android:text="详情"
-            android:textStyle="bold"
             android:textColor="#000000"
             android:textSize="18sp" />
 

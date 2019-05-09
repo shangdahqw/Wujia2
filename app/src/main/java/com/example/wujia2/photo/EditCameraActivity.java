@@ -18,6 +18,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.allen.library.SuperTextView;
 import com.example.wujia2.LoginActivity;
 import com.example.wujia2.R;
 import com.example.wujia2.pojo.Circle;
@@ -88,6 +89,21 @@ public class EditCameraActivity extends AppCompatActivity {
                 EditCameraActivity.this.finish();
             }
         });
+
+
+
+        SuperTextView tV_choose_group = (SuperTextView)findViewById(R.id.choose_group_video);
+
+
+        tV_choose_group.setOnSuperTextViewClickListener(new SuperTextView.OnSuperTextViewClickListener() {
+            @Override
+            public void onClickListener(SuperTextView superTextView) {
+
+                Intent intent = new Intent(EditCameraActivity.this, GroupChooseActivity.class);
+                startActivity(intent);
+            }
+        });
+
     }
 
     /**

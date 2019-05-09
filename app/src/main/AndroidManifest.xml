@@ -21,18 +21,24 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".HomeActivity">
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".group.GroupInfoActivity"/>
+        <activity android:name=".group.GroupSearchActivity"/>
         <activity android:name=".LoginActivity"/>
-        <activity android:name=".MainActivity"/>
+        <activity android:name=".RegisterActivity"/>
+        <activity android:name=".HomeActivity"/>
         <activity android:name="com.example.wujia2.photo.MainActivity"/>
         <activity android:name="com.example.wujia2.photo.CommentActivity"/>
         <activity android:name="com.example.wujia2.photo.EditActivity"/>
+        <activity android:name="com.example.wujia2.photo.GroupChooseActivity"/>
+        <activity android:name="com.example.wujia2.photo.GroupChooseDownActivity"/>
+        <activity android:name=".myindex.SettingActivity"/>
         <activity android:name=".photo.CameraActivity"/>
         <activity android:name=".photo.PlayVideoActivity"/>
         <activity android:name=".photo.EditCameraActivity"/>

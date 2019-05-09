@@ -15,7 +15,7 @@
         />
 
     <com.allen.library.SuperTextView
-        android:id="@+id/alipay_stv"
+        android:id="@+id/id_search"
         android:layout_width="match_parent"
         android:layout_height="70dp"
 

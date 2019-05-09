@@ -13,17 +13,22 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
+
+import com.allen.library.SuperTextView;
 import com.example.wujia2.HomeActivity;
 import com.example.wujia2.LoginActivity;
 import com.example.wujia2.R;
 import com.example.wujia2.adapter.GroupAdapter;
+import com.example.wujia2.myindex.SettingActivity;
 import com.example.wujia2.pojo.Group;
 import com.example.wujia2.utils.HttpUtil;
 import com.example.wujia2.utils.JsonUtils;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import okhttp3.Response;
@@ -36,7 +41,7 @@ public class GroupFragment extends Fragment {
 
   private GroupAdapter adapter;
   private ListView listView;
-
+  List<Group> grouplist =new ArrayList<>();
 
   @Nullable
   @Override
@@ -49,9 +54,25 @@ public class GroupFragment extends Fragment {
     listView = (ListView) view.findViewById(R.id.mylist);
 
     new Thread(new NetThread()).start();
+
+
+
+
+    SuperTextView tV_id_search = (SuperTextView) view.findViewById(R.id.id_search);
+
+
+    tV_id_search.setOnSuperTextViewClickListener(new SuperTextView.OnSuperTextViewClickListener() {
+      @Override
+      public void onClickListener(SuperTextView superTextView) {
+
+        Intent intent = new Intent(getActivity(),GroupSearchActivity.class);
+        startActivity(intent);
+      }
+    });
+
+
     return view;
   }
-
 
 
   //uiHandler在主线程中创建，所以自动绑定主线程
@@ -60,7 +81,7 @@ public class GroupFragment extends Fragment {
     public void handleMessage(Message msg) {
       switch (msg.what) {
         case 1:
-          List<Group> grouplist = (List<Group>) msg.obj;
+          grouplist = (List<Group>) msg.obj;
           adapter=new GroupAdapter(grouplist,getActivity());
           listView.setAdapter(adapter);
           break;

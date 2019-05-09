@@ -15,26 +15,22 @@
         />
 
     <com.allen.library.SuperTextView
-        android:id="@+id/alipay_stv"
+        android:id="@+id/photo_stv"
         android:layout_width="match_parent"
         android:layout_height="70dp"
-
-        stv:sLeftViewMarginLeft="20dp"
-
-        stv:sRightIconMarginRight="40dp"
-        stv:sRightIconRes="@mipmap/photo_take"
-        stv:sRightIconHeight="25dp"
-        stv:sRightIconWidth="25dp"
-
-
-        stv:sLeftBottomTextString="相册"
-        stv:sLeftBottomTextColor="@android:color/black"
-        stv:sLeftBottomTextSize="30sp"
-        stv:sLeftViewGravity="left_center"
-        stv:sDividerLineType="bottom"
+        stv:sBottomDividerLineMarginLR="20dp"
         stv:sDividerLineColor="@color/app_theme"
         stv:sDividerLineHeight="1dp"
-        stv:sBottomDividerLineMarginLR="20dp" />
+        stv:sDividerLineType="bottom"
+        stv:sLeftBottomTextColor="@android:color/black"
+        stv:sLeftBottomTextSize="30sp"
+        stv:sLeftBottomTextString="相册"
+        stv:sLeftViewGravity="left_center"
+        stv:sLeftViewMarginLeft="20dp"
+        stv:sRightIconHeight="25dp"
+        stv:sRightIconMarginRight="40dp"
+        stv:sRightIconRes="@mipmap/photo_take"
+        stv:sRightIconWidth="25dp" />
 
     <com.allen.library.SuperTextView
         android:id="@+id/photoview"
@@ -50,27 +46,6 @@
         stv:sLeftTextString="相册动态"
         stv:sLeftTextSize="18dp"
         stv:sRightIconRes="@mipmap/arrow_right" />
-
-    <com.allen.library.SuperTextView
-        android:id="@+id/videoview"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginTop="10dp"
-
-        stv:sLeftIconMarginLeft="15dp"
-        stv:sLeftIconRes="@mipmap/photo"
-
-        stv:sLeftViewMarginLeft="10dp"
-        stv:sDividerLineType="bottom"
-        stv:sLeftTextString=" 相册集"
-        stv:sLeftTextSize="18dp"
-        stv:sRightIconRes="@mipmap/arrow_right" />
-
-
-        />
-
-
-
 
 
 

@@ -1,14 +1,17 @@
-package com.example.wujia2.group;
+package com.example.wujia2.photo;
 
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
+import com.allen.library.SuperTextView;
 import com.example.wujia2.R;
+import com.example.wujia2.pojo.Group;
+import com.squareup.picasso.Picasso;
 
 /** Created by bruce on 2016/11/1. HomeActivity 主界面 */
-public class GroupCreateActivity extends AppCompatActivity {
+public class GroupChooseActivity extends AppCompatActivity {
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -23,10 +26,8 @@ public class GroupCreateActivity extends AppCompatActivity {
                       View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN | View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
     }
 
-    setContentView(R.layout.activity_group_create);
+    setContentView(R.layout.photo_edit_group_choice);
+
 
   }
 }
-
-
-

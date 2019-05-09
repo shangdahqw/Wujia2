@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:stv="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <com.allen.library.SuperTextView
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        stv:sDividerLineType="none"
+        />
+
+    <com.allen.library.SuperTextView
+        android:id="@+id/alipay_stv"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        stv:sCenterBottomTextString="账号设置"
+        stv:sCenterBottomTextColor="@android:color/black"
+        stv:sCenterBottomTextSize="20sp"
+        stv:sCenterViewGravity="center"
+        stv:sDividerLineType="none"
+        stv:sLeftIconMarginLeft="15dp"
+        stv:sLeftIconRes="@mipmap/arrow_left"
+        />
+
+    <com.allen.library.SuperTextView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+
+        stv:sLeftViewMarginLeft="15dp"
+        stv:sDividerLineType="bottom"
+        stv:sLeftTextString="修改手机号"
+        stv:sLeftTextSize="18dp"
+
+        stv:sRightTextColor="#979797"
+        stv:sRightIconRes="@mipmap/arrow_right" />
+    <com.allen.library.SuperTextView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+
+        stv:sLeftViewMarginLeft="15dp"
+        stv:sDividerLineType="bottom"
+        stv:sLeftTextString="修改密码"
+        stv:sLeftTextSize="18dp"
+
+        stv:sRightTextColor="#979797"
+        stv:sRightIconRes="@mipmap/arrow_right" />
+    <com.allen.library.SuperTextView
+        android:id="@+id/logout"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        stv:sLeftViewGravity="center"
+        stv:sDividerLineType="bottom"
+        stv:sCenterTextString="退出账号"
+        stv:sCenterTextColor="#d81e06"
+        stv:sCenterTextSize="18dp" />
+
+
+</LinearLayout>

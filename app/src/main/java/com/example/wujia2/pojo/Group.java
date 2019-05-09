@@ -1,16 +1,44 @@
 package com.example.wujia2.pojo;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Group {
+public class Group implements Serializable {
 
 
   private Long id;
   private Long createdUserId; // 创建用户
   private String groupName;
-  private String notice;
+  private String nickname;
   private Date created;
   private String imageUrl;
+  private String introduce;
+  private Long numPost;
+
+
+  public String getNickname() {
+    return nickname;
+  }
+
+  public void setNickname(String nickname) {
+    this.nickname = nickname;
+  }
+  public String getIntroduce() {
+    return introduce;
+  }
+
+  public void setIntroduce(String introduce) {
+    this.introduce = introduce;
+  }
+
+  public Long getNumPost() {
+    return numPost;
+  }
+
+  public void setNumPost(Long numPost) {
+    this.numPost = numPost;
+  }
+
 
   public Long getId() {
     return id;
@@ -34,14 +62,6 @@ public class Group {
 
   public void setGroupName(String groupName) {
     this.groupName = groupName;
-  }
-
-  public String getNotice() {
-    return notice;
-  }
-
-  public void setNotice(String notice) {
-    this.notice = notice;
   }
 
   public Date getCreated() {

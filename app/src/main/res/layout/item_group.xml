@@ -6,26 +6,29 @@
     >
 
 
-
     <com.allen.library.SuperTextView
-        android:id="@+id/super_tv"
+        android:id="@+id/group_tv"
         android:layout_width="match_parent"
-        android:layout_height="80dp"
+        android:layout_height="130dp"
+        android:layout_marginTop="10dp"
         stv:sLeftIconMarginLeft="30dp"
         stv:sLeftIconRes="@mipmap/group_head"
-        stv:sLeftIconHeight="50dp"
-        stv:sLeftIconWidth="50dp"
-        stv:sLeftIconShowCircle="true"
+        stv:sLeftIconHeight="80dp"
+        stv:sLeftIconWidth="80dp"
         stv:sLeftTopTextString="咱们一家人"
-        stv:sLeftTopTextColor="@android:color/black"
+        stv:sLeftTopTextColor="@color/app_theme"
         stv:sLeftTopTextSize="20sp"
-        stv:sLeftBottomTextString="ID:8356312"
+        stv:sLeftTextString="相册简介：吾家，记录美好家庭生活"
+        stv:sLeftTextSize="12sp"
+        stv:sLeftTextColor="@color/app_theme"
+        stv:sLeftBottomTextString="ID:00000000"
         stv:sLeftBottomTextColor="#979797"
+        stv:sLeftBottomTextSize="12sp"
         stv:sLeftViewGravity="left_center"
         stv:sDividerLineType="bottom"
         stv:sBottomDividerLineMarginLR="20dp"
+        stv:sRightIconRes="@mipmap/arrow_right" />
 
-        />
 
 
 </LinearLayout>

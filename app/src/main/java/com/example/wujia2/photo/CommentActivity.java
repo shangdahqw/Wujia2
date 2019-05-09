@@ -53,7 +53,7 @@ public class CommentActivity extends AppCompatActivity implements View.OnClickLi
     private MyListview listView;
     RoundedImageView head;
     private Post post = new Post();
-    TextView tv_name, tv_time, tv_content, tv_good;
+    TextView tv_name, tv_time, tv_content,num_reply,num_likes;
     private NineGridView nineGridView;
     private Button btn_reply;
     private EditText et_reply;
@@ -85,7 +85,6 @@ public class CommentActivity extends AppCompatActivity implements View.OnClickLi
         tv_name = findViewById(R.id.tv_comment_username);
         tv_time = findViewById(R.id.tv_comment_time);
         tv_content = findViewById(R.id.tv_comment_content);
-        tv_good = findViewById(R.id.item_good_comment);
         head = findViewById(R.id.comment_friend_icon);
         btn_reply = findViewById(R.id.btn_comm);
         et_reply = findViewById(R.id.et_reply);
@@ -94,13 +93,20 @@ public class CommentActivity extends AppCompatActivity implements View.OnClickLi
         back_deal = findViewById(R.id.back_deal);
         im_reply = findViewById(R.id.comm_repy);
         ly_opte = findViewById(R.id.ly_opte);
+        num_reply = findViewById(R.id.num_reply2);
+        num_likes = findViewById(R.id.num_likes2);
+
+
         tv_name.setText(getIntent().getStringExtra("username"));
         tv_time.setText(getIntent().getStringExtra("time"));
         tv_content.setText(getIntent().getStringExtra("content"));
         String headurl = getIntent().getStringExtra("head");
-        tv_good.setText(getIntent().getStringExtra("goods"));
         circle_id = getIntent().getLongExtra("circle_id", 1);
         user_id = getIntent().getLongExtra("user_id", 1);
+        num_reply.setText(getIntent().getStringExtra("num_reply"));
+        num_likes.setText(getIntent().getStringExtra("num_likes"));
+
+
 
         if (getIntent().getStringExtra("isHaven").equals("true")) {
             isHaven = true;
@@ -134,12 +140,6 @@ public class CommentActivity extends AppCompatActivity implements View.OnClickLi
             @Override
             public void onClick(View view) {
                 reply2();
-            }
-        });
-        tv_good.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                updates();//点赞
             }
         });
         back_deal.setOnClickListener(new View.OnClickListener() {

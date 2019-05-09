@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:stv="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+
+    <com.allen.library.SuperTextView
+        android:id="@+id/alipay_stv"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        stv:sLeftBottomTextString="取消"
+        stv:sLeftBottomTextSize="16dp"
+        stv:sCenterBottomTextString="选择相册群组"
+        stv:sCenterBottomTextColor="@android:color/black"
+        stv:sCenterBottomTextSize="20sp"
+        stv:sRightTextString="完成"
+        stv:sRightTextColor="@color/app_theme"
+        stv:sCenterViewGravity="center"
+        stv:sDividerLineType="none"
+        stv:sLeftViewMarginLeft="20dp"
+        stv:sRightViewMarginRight="20dp"
+
+        />
+    <com.allen.library.SuperTextView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        stv:sLeftViewMarginLeft="30dp"
+        android:layout_marginTop="30dp"
+        stv:sDividerLineType="bottom"
+        stv:sLeftTextString="咱们一家人"
+        stv:sRightIconMarginRight="30dp"
+        stv:sRightIconRes="@mipmap/box" />
+    <com.allen.library.SuperTextView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        stv:sLeftViewMarginLeft="30dp"
+        stv:sDividerLineType="bottom"
+        stv:sLeftTextString="外婆家"
+        stv:sRightIconMarginRight="30dp"
+        stv:sRightIconRes="@mipmap/box" />
+    <com.allen.library.SuperTextView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        stv:sLeftViewMarginLeft="30dp"
+        stv:sDividerLineType="bottom"
+        stv:sLeftTextString="奶奶家"
+        stv:sRightIconMarginRight="30dp"
+        stv:sRightIconRes="@mipmap/box" />
+
+
+
+
+
+
+
+</LinearLayout>

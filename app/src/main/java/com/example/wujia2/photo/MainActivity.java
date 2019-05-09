@@ -196,8 +196,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         } else {
             intent.putExtra("isHaven", "false");
         }
-        String good = list.get(i).getPraise().toString();
-        intent.putExtra("goods", good);
+        Long num_reply = list.get(i).getNumReply();
+        intent.putExtra("num_reply", num_reply.toString());
+        Long num_likes = list.get(i).getNumLikes();
+        intent.putExtra("num_likes", num_likes.toString());
 
         //如果帖子没有图片就做处理 传入空
         if (list.get(i).getHeadImgUrl() != null) {
@@ -256,7 +258,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if (resultCode == 103) {
             Toast.makeText(this, "请检查相机权限~", Toast.LENGTH_SHORT).show();
         }
-
 
 
     }
@@ -341,8 +342,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     }
                 }
                 List<Post> lists = new ArrayList<>();
-                for (CircleUserVo circleUserVo : circleUserlist) {
+                for (int i = circleUserlist.size() - 1; i >= 0; i--) {
 
+                    CircleUserVo circleUserVo = circleUserlist.get(i);
                     List<String> listimg = JsonUtils.parseList(circleUserVo.getCircle().getImages(), String.class);
                     Post post = new Post();
                     post.setUserId(circleUserVo.getCircle().getUserId());
@@ -353,7 +355,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     post.setHaveIcon(true);
                     post.setTime(DateConverter.dateTimeToStr(circleUserVo.getCircle().getCreated()));
                     post.setHeadImgUrl(listimg);
-                    post.setPraise(3);
+                    post.setNumLikes(circleUserVo.getCircle().getNumLikes());
+                    post.setNumReply(circleUserVo.getCircle().getNumReply());
+
                     lists.add(post);
 
                 }
@@ -443,10 +447,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             public void onClick(DialogInterface dialog, int which) {
 
                 if (which == 0) {
-                    if (head_url_res.equals("")) {
-                        toast("等待数据初始化中...");
-                        return;
-                    }
                     Intent intent = new Intent(MainActivity.this, EditActivity.class);
                     startActivity(intent);
 
@@ -480,10 +480,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
 
-
-
-
-
     /**
      * 获取权限
      */
@@ -507,6 +503,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             startActivityForResult(new Intent(MainActivity.this, CameraActivity.class), 100);
         }
     }
+
     @TargetApi(27)
     @Override
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {

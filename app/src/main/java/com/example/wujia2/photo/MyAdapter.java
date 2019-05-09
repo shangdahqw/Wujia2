@@ -75,6 +75,11 @@ public class MyAdapter  extends BaseAdapter {
             holder.pic_iv = (ImageView) view.findViewById(R.id.pic_iiv);
             holder.start_iv = (ImageView) view.findViewById(R.id.start_iv);
             holder.frameLayout = (FrameLayout) view.findViewById(R.id.frameLayout);
+            holder.num_reply = (TextView) view.findViewById(R.id.num_reply);
+            holder.num_likes = (TextView) view.findViewById(R.id.num_likes);
+            holder.post_groups = (ImageView) view.findViewById(R.id.post_groups);
+
+
 
             view.setTag(holder);
         } else {
@@ -89,8 +94,9 @@ public class MyAdapter  extends BaseAdapter {
             holder.content.setText(mycontent);
         }
         holder.name.setText(list.get(i).getUserName());
-        holder.time.setText(list.get(i).getTime());
-
+        holder.time.setText("分享时间:  "+list.get(i).getTime());
+        holder.num_reply.setText(list.get(i).getNumReply().toString());
+        holder.num_likes.setText(list.get(i).getNumLikes().toString());
 
         final Handler handler = new Handler(){
             @Override
@@ -104,8 +110,8 @@ public class MyAdapter  extends BaseAdapter {
             }
         };
 
-        if (list.get(i).isHaveIcon()) {//判断是否有图片
-
+        if (list.get(i).isHaveIcon()) {
+            //判断是否有图片
             if (list.get(i).getHeadImgUrl().size() != 1) {
                 ArrayList<ImageInfo> imageInfo = new ArrayList<>();
                 for (int j = 0; j < list.get(i).getHeadImgUrl().size(); j++) {
@@ -167,6 +173,13 @@ public class MyAdapter  extends BaseAdapter {
             holder.nineGrid.setVisibility(View.GONE);
         }
 
+        holder.post_groups.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, GroupChooseDownActivity.class);
+                context.startActivity(intent);
+            }
+        });
         return view;
     }
 
@@ -178,6 +191,10 @@ public class MyAdapter  extends BaseAdapter {
         private com.lzy.ninegrid.NineGridView nineGrid;
         private FrameLayout frameLayout;
         private ImageView pic_iv, start_iv;
+        private TextView num_reply;
+        private TextView num_likes;
+        private ImageView post_groups;
+
     }
 
 

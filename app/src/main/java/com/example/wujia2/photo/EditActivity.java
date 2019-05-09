@@ -23,6 +23,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.allen.library.SuperTextView;
 import com.example.wujia2.LoginActivity;
 import com.example.wujia2.R;
 import com.example.wujia2.pojo.Circle;
@@ -85,6 +86,19 @@ public class EditActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 EditActivity.this.finish();
+            }
+        });
+
+
+        SuperTextView tV_choose_group = (SuperTextView)findViewById(R.id.choose_group);
+
+
+        tV_choose_group.setOnSuperTextViewClickListener(new SuperTextView.OnSuperTextViewClickListener() {
+            @Override
+            public void onClickListener(SuperTextView superTextView) {
+
+                Intent intent = new Intent(EditActivity.this, GroupChooseActivity.class);
+                startActivity(intent);
             }
         });
     }
@@ -283,7 +297,7 @@ public class EditActivity extends AppCompatActivity {
         imagePicker.setImageLoader(new ImageLoader());
         imagePicker.setMultiMode(true);   //多选
         imagePicker.setShowCamera(true);  //显示拍照按钮
-        imagePicker.setSelectLimit(12);    //最多选择X张
+        imagePicker.setSelectLimit(9);    //最多选择X张
         imagePicker.setCrop(false);       //不进行裁剪
         Intent intent = new Intent(EditActivity.this, ImageGridActivity.class);
         startActivityForResult(intent, 100);

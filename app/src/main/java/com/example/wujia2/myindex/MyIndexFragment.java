@@ -34,7 +34,7 @@ import static com.example.wujia2.MyApplication.SERVER_MICRO_URL;
 public class MyIndexFragment extends Fragment {
 
 
-    private SuperTextView tV_head, tV_username, tV_iphone, tV_birthday;
+    private SuperTextView tV_head, tV_iphone, tV_birthday;
 
     @Override
     public View onCreateView(
@@ -45,10 +45,23 @@ public class MyIndexFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_myindex, container, false);
 
         tV_head = (SuperTextView) view.findViewById(R.id.head);
-        tV_username = (SuperTextView) view.findViewById(R.id.username);
         tV_iphone = (SuperTextView) view.findViewById(R.id.iphone);
         tV_birthday = (SuperTextView) view.findViewById(R.id.birthday);
         new Thread(new NetThread()).start();
+
+        SuperTextView tV_setting = (SuperTextView) view.findViewById(R.id.setting);
+
+
+        tV_setting.setOnSuperTextViewClickListener(new SuperTextView.OnSuperTextViewClickListener() {
+            @Override
+            public void onClickListener(SuperTextView superTextView) {
+
+                Intent intent = new Intent(getActivity(), SettingActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
 
         return view;
 
@@ -63,12 +76,11 @@ public class MyIndexFragment extends Fragment {
                 case 1:
                     User user = (User) msg.obj;
                     tV_head.setLeftTopString(user.getUsername());
-                    tV_head.setLeftBottomString(user.getId().toString());
+                    tV_head.setLeftString("ID: "+user.getId().toString());
                     tV_iphone.setRightString(user.getPhone());
-                    tV_username.setRightString(user.getUsername());
                     tV_birthday.setRightString(DateConverter.dateToStr(user.getBirthday()));
                     Picasso.with(getActivity())
-                            .load(SERVER_IMAGE_URL+"group1/M00/00/00/wKgBklyKNWSAFbMbAABpDDWjHHg08.jpeg")
+                            .load(user.getImageUrl())
                             .placeholder(R.mipmap.image_head)
                             .into(tV_head.getLeftIconIV());
                     break;

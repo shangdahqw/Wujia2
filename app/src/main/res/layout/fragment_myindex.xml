@@ -13,60 +13,53 @@
 
         stv:sLeftIconMarginLeft="30dp"
         stv:sLeftIconRes="@mipmap/image_head"
-        stv:sLeftIconHeight="60dp"
-        stv:sLeftIconWidth="60dp"
+        stv:sLeftIconHeight="70dp"
+        stv:sLeftIconWidth="70dp"
         stv:sLeftIconShowCircle="true"
 
-        stv:sLeftTopTextString="忘了爱"
+        stv:sLeftTopTextString="张三"
         stv:sLeftTopTextColor="@android:color/black"
-        stv:sLeftTopTextSize="20sp"
-        stv:sLeftTextString="吾家，记录美好家庭生活"
+        stv:sLeftTopTextSize="26sp"
+        stv:sLeftTextString="ID: 83563126"
         stv:sLeftTextColor="#979797"
-        stv:sLeftBottomTextString="ID:8356312"
-        stv:sLeftBottomTextColor="#979797"
+
         stv:sLeftViewGravity="left_center"
         stv:sDividerLineType="none"
-
-        />
+        stv:sRightIconRes="@mipmap/arrow_right"/>
 
     <com.allen.library.SuperTextView
         android:layout_width="match_parent"
         android:layout_height="50dp"
+        stv:sLeftViewMarginLeft="20dp"
         android:layout_marginTop="40dp"
+        stv:sDividerLineType="bottom"
+        stv:sLeftTextString="我的相册动态"
+        stv:sRightTextColor="#979797"
+        stv:sRightIconRes="@mipmap/arrow_right" />
 
-        stv:sLeftViewMarginLeft="20dp"
-        stv:sDividerLineType="bottom"
-        stv:sLeftTextString="头像"
-        stv:sRightIconRes="@mipmap/arrow_right" />
-    <com.allen.library.SuperTextView
-        android:id="@+id/username"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        stv:sLeftViewMarginLeft="20dp"
-        stv:sDividerLineType="bottom"
-        stv:sLeftTextString="名字"
-        stv:sRightTextString="忘了爱"
-        stv:sRightTextColor="#979797"
-        stv:sRightIconRes="@mipmap/arrow_right" />
-    <com.allen.library.SuperTextView
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        stv:sLeftViewMarginLeft="20dp"
-        stv:sDividerLineType="bottom"
-        stv:sLeftTextString="定位"
-        stv:sRightTextString="上海"
-        stv:sRightTextColor="#979797"
-        stv:sRightViewMarginRight="40dp"/>
     <com.allen.library.SuperTextView
         android:id="@+id/iphone"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         stv:sLeftViewMarginLeft="20dp"
+        stv:sRightViewMarginRight="35dp"
         stv:sDividerLineType="bottom"
-        stv:sLeftTextString="手机"
+        stv:sLeftTextString="手机号"
         stv:sRightTextString="18702117082"
+        android:layout_marginTop="40dp"
+        stv:sRightTextColor="#979797" />
+
+    <com.allen.library.SuperTextView
+        android:id="@+id/sex"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        stv:sLeftViewMarginLeft="20dp"
+        stv:sDividerLineType="bottom"
+        stv:sLeftTextString="性别"
+        stv:sRightTextString="男"
         stv:sRightTextColor="#979797"
         stv:sRightIconRes="@mipmap/arrow_right" />
+
     <com.allen.library.SuperTextView
         android:id="@+id/birthday"
         android:layout_width="match_parent"
@@ -74,8 +67,30 @@
         stv:sLeftViewMarginLeft="20dp"
         stv:sDividerLineType="bottom"
         stv:sLeftTextString="生日"
-        stv:sRightTextString="2019-03-01"
+        stv:sRightTextString="1994-01-21"
         stv:sRightTextColor="#979797"
         stv:sRightIconRes="@mipmap/arrow_right" />
+    <com.allen.library.SuperTextView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        stv:sLeftViewMarginLeft="20dp"
+        stv:sDividerLineType="bottom"
+        stv:sLeftTextString="城市"
+        stv:sRightTextString="上海"
+        stv:sRightTextColor="#979797"
+        stv:sRightIconRes="@mipmap/arrow_right"/>
+    <com.allen.library.SuperTextView
+        android:id="@+id/setting"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        stv:sLeftViewMarginLeft="20dp"
+        stv:sDividerLineType="bottom"
+        stv:sLeftTextString="账号设置"
+        stv:sRightTextColor="#979797"
+        stv:sRightIconRes="@mipmap/arrow_right" />
+
+
+
+
 
 </LinearLayout>
