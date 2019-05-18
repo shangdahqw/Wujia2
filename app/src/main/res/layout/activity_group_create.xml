@@ -17,7 +17,7 @@
         android:layout_height="50dp"
         stv:sLeftBottomTextString="取消"
         stv:sLeftBottomTextSize="16dp"
-        stv:sCenterBottomTextString="创建群"
+        stv:sCenterBottomTextString="设置用户名"
         stv:sCenterBottomTextColor="@android:color/black"
         stv:sCenterBottomTextSize="20sp"
         stv:sCenterViewGravity="center"

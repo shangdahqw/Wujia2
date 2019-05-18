@@ -23,7 +23,9 @@ public class GroupSearchActivity extends AppCompatActivity {
                       View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN | View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
     }
 
-    setContentView(R.layout.activity_group_search_before);
+//    setContentView(R.layout.activity_group_search_before);
+    setContentView(R.layout.activity_group_create);
+
 
   }
 }

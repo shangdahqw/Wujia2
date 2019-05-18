@@ -70,8 +70,7 @@
     <RelativeLayout
         android:id="@+id/spaceTopChange"
         android:layout_width="match_parent"
-        android:layout_height="55dp"
-        android:layout_marginTop="20dp"
+        android:layout_height="60dp"
         android:background="#003793c7">
 
         <ImageView
@@ -80,6 +79,7 @@
             android:layout_height="25dp"
             android:layout_centerVertical="true"
             android:layout_marginLeft="5dp"
+            android:layout_marginTop="10dp"
             android:contentDescription="TODO"
             android:src="@mipmap/arrow_left_white" />
 

@@ -156,7 +156,7 @@ public class EditActivity extends AppCompatActivity {
                         try {
                             String url = response.body().string();
                             imagesUrl.add(url);
-                            dialog.setProgress(j);
+                            dialog.setProgress((int)(j/filePaths.length*100));
                         } catch (IOException e) {
                             e.printStackTrace();
                             dialog.dismiss();
@@ -297,7 +297,7 @@ public class EditActivity extends AppCompatActivity {
         imagePicker.setImageLoader(new ImageLoader());
         imagePicker.setMultiMode(true);   //多选
         imagePicker.setShowCamera(true);  //显示拍照按钮
-        imagePicker.setSelectLimit(9);    //最多选择X张
+        imagePicker.setSelectLimit(18);    //最多选择X张
         imagePicker.setCrop(false);       //不进行裁剪
         Intent intent = new Intent(EditActivity.this, ImageGridActivity.class);
         startActivityForResult(intent, 100);
